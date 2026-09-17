@@ -2507,6 +2507,41 @@ select {
   }
 }
 
+
+/* Atelier V8 · ramita botánica fina */
+.atelier-sprig-fina{
+  width:74px !important;
+  height:auto;
+  margin:5px 0 15px !important;
+  color:#9a5a43;
+  overflow:visible;
+}
+.atelier-sprig-fina .sprig-main{
+  stroke-width:1.35;
+}
+.atelier-sprig-fina .sprig-leaf{
+  stroke-width:1.05;
+}
+
+
+/* Atelier V9 · ramita simple de tres hojas */
+.atelier-sprig-v9{
+  width:68px !important;
+  height:auto;
+  margin:7px 0 15px !important;
+  color:#94543f;
+}
+.atelier-sprig-v9 .sprig-main{
+  fill:none !important;
+  stroke:currentColor !important;
+  stroke-width:1.15 !important;
+}
+.atelier-sprig-v9 .sprig-leaf{
+  fill:rgba(148,84,63,.10) !important;
+  stroke:currentColor !important;
+  stroke-width:1.05 !important;
+}
+
 </style>
 
 
@@ -2809,23 +2844,12 @@ select {
       <span>C</span><i></i><span>A</span>
     </div>
 
-    <svg class="atelier-sprig" viewBox="0 0 180 58" aria-hidden="true">
-  <g class="sprig-stem">
-    <path d="M27 39 C58 38 88 27 151 13"/>
-    <path d="M31 39 C52 42 78 43 101 39"/>
-  </g>
-  <g class="sprig-leaves">
-    <ellipse cx="49" cy="35" rx="11" ry="4.5" transform="rotate(25 49 35)"/>
-    <ellipse cx="61" cy="31" rx="11" ry="4.5" transform="rotate(-47 61 31)"/>
-    <ellipse cx="74" cy="30" rx="12" ry="4.7" transform="rotate(25 74 30)"/>
-    <ellipse cx="87" cy="25" rx="11" ry="4.4" transform="rotate(-48 87 25)"/>
-    <ellipse cx="101" cy="23" rx="11" ry="4.4" transform="rotate(24 101 23)"/>
-    <ellipse cx="114" cy="18" rx="10" ry="4.2" transform="rotate(-48 114 18)"/>
-    <ellipse cx="127" cy="17" rx="10" ry="4.1" transform="rotate(24 127 17)"/>
-    <ellipse cx="140" cy="13" rx="9" ry="3.8" transform="rotate(-43 140 13)"/>
-    <ellipse cx="55" cy="41" rx="9" ry="3.8" transform="rotate(20 55 41)"/>
-    <ellipse cx="72" cy="42" rx="9" ry="3.8" transform="rotate(-18 72 42)"/>
-    <ellipse cx="89" cy="40" rx="9" ry="3.8" transform="rotate(18 89 40)"/>
+    <svg class="atelier-sprig atelier-sprig-fina atelier-sprig-v9" viewBox="0 0 150 50" aria-hidden="true">
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path class="sprig-main" d="M28 35 C58 34 87 28 124 18"/>
+    <path class="sprig-leaf" d="M58 32 C49 24 43 23 38 25 C43 31 49 34 58 32 Z"/>
+    <path class="sprig-leaf" d="M82 28 C79 18 82 12 88 9 C90 17 88 23 82 28 Z"/>
+    <path class="sprig-leaf" d="M105 23 C113 14 120 13 126 15 C121 21 114 24 105 23 Z"/>
   </g>
 </svg>
 
