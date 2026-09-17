@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carolina & Alexander</title>
+  <meta name="robots" content="noindex">
+  <style>
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: #f3e8dc;
+    }
+  </style>
+</head>
+<body>
+<script>
+(function () {
+
+  const path = window.location.pathname;
+  const segmentos = path.split("/").filter(Boolean);
+
+  let codigo = "";
+
+  if (segmentos.length) {
+    codigo = decodeURIComponent(
+      segmentos[segmentos.length - 1]
+    ).trim();
+  }
+
+  if (!codigo || codigo.includes(".")) {
+    return;
+  }
+
+  sessionStorage.setItem(
+    "codigoInvitacion",
+    codigo
+  );
+
+  sessionStorage.setItem(
+    "rutaBonitaInvitacion",
+    path + window.location.search + window.location.hash
+  );
+
+  const esGitHubPages =
+    window.location.hostname.endsWith("github.io");
+
+  const destino = esGitHubPages
+    ? "/invitaci-n-boda/"
+    : "/";
+
+  window.location.replace(destino);
+
+})();
+</script>
+</body>
+</html>

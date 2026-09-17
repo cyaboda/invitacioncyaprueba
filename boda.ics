@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Carolina y Alexander//Boda 2026//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:boda-carolina-alexander-14112026@invitacion
+DTSTAMP:20260830T005200Z
+DTSTART:20261114T213000Z
+SUMMARY:Carolina & Alexander | Nuestra Boda
+LOCATION:Karla Ramírez Event Studio · La Solé\, Av. Gral. Rumiñahui S/N\, 171103 Quito
+DESCRIPTION:Acompáñanos a celebrar nuestra boda. Carolina & Alexander · 14 de noviembre de 2026 · Ceremonia 16:30.
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR
