@@ -3041,6 +3041,17 @@ select {
 const API_URL =
 "https://script.google.com/macros/s/AKfycbz_-f9kBoM8sUsXhQ9BqC4MuiWM3H8QtZrAIO6-Fgw-GZsttL3mVH4GUk5mT_3ZqgwxcA/exec";
 
+// MODO DE PRUEBA: invitado ficticio para trabajar el rediseño sin tocar la base real.
+const MODO_DEMO = true;
+const INVITADO_DEMO = {
+  ok: true,
+  invitado: "Invitado CELEA",
+  cupos: 2,
+  estado: "PENDIENTE",
+  asisten: "",
+  acompanantes: ""
+};
+
 const parametros =
 new URLSearchParams(window.location.search);
 
@@ -3096,8 +3107,9 @@ function obtenerCodigoInvitacion() {
   return "";
 }
 
-const codigo =
-obtenerCodigoInvitacion();
+const codigo = MODO_DEMO
+? "DEMO-CARO-ALEX"
+: obtenerCodigoInvitacion();
 
 // Si venimos del 404 interno, recuperamos la URL bonita.
 const rutaBonitaPendiente =
@@ -3374,6 +3386,11 @@ function consultaJSONP(
 ========================================================= */
 
 async function cargarInvitado() {
+
+  if (MODO_DEMO) {
+    recibirInvitado({ ...INVITADO_DEMO });
+    return;
+  }
 
   if (!codigo) {
 
@@ -4101,6 +4118,14 @@ async function guardarRSVP() {
       return;
     }
 
+  }
+
+  if (MODO_DEMO) {
+    invitadoActual.estado = respuestaRSVP === "SI" ? "CONFIRMADO" : "NO ASISTE";
+    invitadoActual.asisten = respuestaRSVP === "SI" ? cantidadAsistentes : 0;
+    invitadoActual.acompanantes = acompanantes.join("|");
+    mostrarRespuestaGuardada(true);
+    return;
   }
 
   rsvpConfirmar.disabled = true;
