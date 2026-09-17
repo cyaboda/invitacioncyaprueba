@@ -2395,7 +2395,7 @@ select {
   min-height:100svh;
   padding:24px;
   overflow:hidden;
-  background:#ead7c1 url("FONDOPC.png") center center / cover no-repeat;
+  background:#ead7c1 url("FONDOPC.webp") center center / contain no-repeat;
   color:#6e3e2e;
   isolation:isolate;
 }
@@ -2570,8 +2570,11 @@ select {
 @media(max-width:760px){
   .portada-atelier-real{
     padding:14px;
-    background-image:url("FONDOCELL.png");
+    background-image:url("FONDOCELL.webp");
     background-position:center center;
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-color:#ead7c1;
   }
   .atelier-meta-left{
     left:18px;top:24px;
@@ -2626,6 +2629,10 @@ select {
   .atelier-panel{width:75vw;top:49%}
 }
 </style>
+
+
+<link rel="preload" as="image" href="FONDOPC.webp" type="image/webp" media="(min-width: 761px)">
+<link rel="preload" as="image" href="FONDOCELL.webp" type="image/webp" media="(max-width: 760px)">
 
 </head>
 
