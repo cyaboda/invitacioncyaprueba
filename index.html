@@ -2384,6 +2384,249 @@ select {
 
 </style>
 
+
+<style id="atelier-real-background-cover">
+/* =========================================================
+   CARO & ALEX · ATELIER
+   FONDO REAL + INTERFAZ HTML
+========================================================= */
+.portada-atelier-real{
+  min-height:100vh;
+  min-height:100svh;
+  padding:24px;
+  overflow:hidden;
+  background:#ead7c1 url("FONDOPC.png") center center / cover no-repeat;
+  color:#6e3e2e;
+  isolation:isolate;
+}
+.portada-atelier-real::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  background:linear-gradient(90deg,rgba(70,37,22,.03),transparent 22%,transparent 78%,rgba(70,37,22,.035));
+}
+.atelier-meta,.atelier-side,.atelier-panel,.atelier-chapter{z-index:2}
+.atelier-meta{
+  position:absolute;
+  font-family:Arial,sans-serif;
+  font-size:8px;
+  line-height:1.65;
+  letter-spacing:4px;
+  color:#724332;
+  text-shadow:0 1px 8px rgba(255,246,233,.65);
+}
+.atelier-meta span{display:block}
+.atelier-meta-left{left:3.3%;top:5.2%;text-align:left}
+.atelier-meta-left i{
+  display:block;width:1px;height:48px;margin-top:13px;
+  background:rgba(111,62,44,.55)
+}
+.atelier-meta-center{
+  left:50%;top:6.6%;transform:translateX(-50%);
+  white-space:nowrap;
+}
+.atelier-meta-right{right:4%;top:5.2%;text-align:right}
+.atelier-meta-right i{
+  display:block;width:40px;height:1px;margin:11px 0 0 auto;
+  background:rgba(111,62,44,.5)
+}
+.atelier-side{
+  position:absolute;
+  font-family:Arial,sans-serif;
+  font-size:7px;
+  letter-spacing:4px;
+  color:#744533;
+  text-shadow:0 1px 8px rgba(255,246,233,.65);
+}
+.atelier-side-left{
+  left:3.4%;top:50%;transform:translateY(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:10px
+}
+.atelier-side-left b{font-size:7px;font-weight:400;color:#a55a3e}
+.atelier-side-right{
+  right:4%;top:50%;transform:translateY(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:8px
+}
+.atelier-side-right i{
+  display:block;width:1px;height:125px;background:rgba(111,62,44,.52)
+}
+.atelier-side-right i.short{height:56px}
+.atelier-side-right b{font-size:13px;color:#a65b40;font-weight:400}
+.atelier-panel{
+  position:absolute;
+  left:50%;
+  top:47%;
+  transform:translate(-50%,-50%);
+  width:min(45vw,690px);
+  min-height:48vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:32px 50px;
+  text-align:center;
+  color:#683b2c;
+}
+.atelier-monogram{
+  display:flex;align-items:center;justify-content:center;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:40px;
+  line-height:1;
+  letter-spacing:.03em;
+  color:#74412f;
+}
+.atelier-monogram i{
+  display:block;width:1px;height:47px;margin:0 17px;
+  background:rgba(115,64,46,.62)
+}
+.atelier-sprig{
+  width:105px;height:auto;margin:7px 0 22px;
+  fill:none;stroke:#8a533e;stroke-width:1.1;stroke-linecap:round;
+  opacity:.85
+}
+.atelier-loading{
+  margin:12px 0;
+  font:10px Arial,sans-serif;
+  letter-spacing:2px;
+  color:#7d5d50;
+}
+.atelier-guest{width:100%}
+.portada-atelier-real .atelier-welcome{
+  margin:0 0 14px;
+  font:8px Arial,sans-serif;
+  letter-spacing:5px;
+  color:#7c4a38;
+}
+.portada-atelier-real #nombreInvitado{
+  margin:0;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(30px,3.15vw,49px);
+  line-height:1.05;
+  color:#643a2c;
+}
+.atelier-rule{
+  width:48px;height:1px;
+  margin:17px auto 15px;
+  background:rgba(139,78,56,.65)
+}
+.portada-atelier-real #cupos{
+  margin:0 auto;
+  max-width:380px;
+  font:8px/1.65 Arial,sans-serif;
+  letter-spacing:3.6px;
+  text-transform:uppercase;
+  color:#754a3a;
+}
+.atelier-enter{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:40px;
+  min-width:255px;
+  margin:24px auto 0;
+  padding:14px 26px;
+  border:0;
+  border-radius:999px;
+  background:linear-gradient(135deg,#b86140,#9f4d33);
+  color:#fff7ef;
+  box-shadow:0 12px 24px rgba(86,44,29,.16);
+  font:9px Arial,sans-serif;
+  letter-spacing:4px;
+  transition:transform .25s ease,box-shadow .25s ease,filter .25s ease;
+}
+.atelier-enter:hover{
+  transform:translateY(-2px);
+  filter:brightness(1.04);
+  box-shadow:0 16px 30px rgba(86,44,29,.21)
+}
+.atelier-enter span{font-size:16px;line-height:0}
+.atelier-error{
+  color:#754f42;
+  font-size:12px;
+  line-height:1.6;
+}
+.atelier-chapter{
+  position:absolute;
+  left:50%;bottom:6%;
+  transform:translateX(-50%);
+  white-space:nowrap;
+  font:7px Arial,sans-serif;
+  letter-spacing:4.5px;
+  color:#744737;
+}
+.atelier-chapter i{
+  display:block;width:38px;height:1px;margin:0 auto 15px;
+  background:rgba(117,67,48,.52)
+}
+.portada-atelier-real.saliendo{
+  transition:opacity .7s ease,transform .7s ease,filter .7s ease;
+  opacity:0;
+  transform:scale(1.015);
+  filter:blur(3px);
+}
+
+@media(max-width:760px){
+  .portada-atelier-real{
+    padding:14px;
+    background-image:url("FONDOCELL.png");
+    background-position:center center;
+  }
+  .atelier-meta-left{
+    left:18px;top:24px;
+    font-size:5.5px;letter-spacing:2.4px
+  }
+  .atelier-meta-left i{height:30px;margin-top:8px}
+  .atelier-meta-center{
+    top:28px;
+    font-size:5.5px;letter-spacing:2.4px
+  }
+  .atelier-meta-right{
+    right:16px;top:24px;
+    font-size:5.5px;letter-spacing:2.2px
+  }
+  .atelier-meta-right i{width:27px;margin-top:7px}
+  .atelier-side{display:none}
+  .atelier-panel{
+    top:49.5%;
+    width:72vw;
+    min-height:31vh;
+    padding:18px 12px;
+  }
+  .atelier-monogram{font-size:29px}
+  .atelier-monogram i{height:34px;margin:0 12px}
+  .atelier-sprig{width:77px;margin:4px 0 13px}
+  .portada-atelier-real .atelier-welcome{
+    font-size:6px;letter-spacing:3.2px;margin-bottom:9px
+  }
+  .portada-atelier-real #nombreInvitado{
+    font-size:clamp(24px,7.8vw,34px)
+  }
+  .atelier-rule{width:35px;margin:11px auto 10px}
+  .portada-atelier-real #cupos{
+    font-size:6px;letter-spacing:2.2px;max-width:250px
+  }
+  .atelier-enter{
+    min-width:190px;
+    margin-top:16px;
+    padding:11px 18px;
+    gap:25px;
+    font-size:7px;
+    letter-spacing:3px
+  }
+  .atelier-chapter{
+    bottom:5.5%;
+    font-size:5.5px;
+    letter-spacing:3px
+  }
+}
+@media(max-width:430px){
+  .atelier-meta-center{display:none}
+  .atelier-panel{width:75vw;top:49%}
+}
+</style>
+
 </head>
 
 <body>
@@ -2400,84 +2643,67 @@ select {
 ></button>
 
 
-<section class="portada" id="portada">
 
-  <div class="mancha mancha-arriba"></div>
-  <div class="mancha mancha-abajo"></div>
-  <div class="linea-vertical linea-izquierda"></div>
-  <div class="linea-vertical linea-derecha"></div>
+<section class="portada portada-atelier-real" id="portada">
 
-  <div class="floral floral-arriba-derecha">
-    <svg viewBox="0 0 280 620">
-      <path class="tallo" d="M262 0 C245 70 232 130 217 185 C197 260 174 322 143 392 C115 455 84 525 44 620" />
-      <path class="rama rama-1" d="M231 132 C205 118 186 97 172 73" />
-      <path class="rama rama-2" d="M214 198 C240 178 254 154 262 126" />
-      <path class="rama rama-3" d="M190 282 C160 260 139 236 124 205" />
-      <path class="rama rama-4" d="M163 348 C193 332 216 306 228 275" />
-      <path class="rama rama-5" d="M124 438 C94 418 74 394 58 365" />
-      <path class="rama rama-6" d="M86 522 C111 509 130 489 145 462" />
-      <ellipse class="hoja hoja-1" cx="182" cy="88" rx="9" ry="21" />
-      <ellipse class="hoja hoja-2" cx="216" cy="122" rx="10" ry="23" />
-      <ellipse class="hoja hoja-3" cx="248" cy="160" rx="9" ry="20" />
-      <ellipse class="hoja hoja-4" cx="145" cy="246" rx="11" ry="25" />
-      <ellipse class="hoja hoja-5" cx="213" cy="305" rx="11" ry="24" />
-      <ellipse class="hoja hoja-6" cx="178" cy="343" rx="9" ry="21" />
-      <ellipse class="hoja hoja-7" cx="79" cy="397" rx="11" ry="25" />
-      <ellipse class="hoja hoja-8" cx="126" cy="447" rx="10" ry="23" />
-      <ellipse class="hoja hoja-9" cx="128" cy="488" rx="10" ry="22" />
-      <ellipse class="hoja hoja-10" cx="68" cy="548" rx="9" ry="21" />
-    </svg>
+  <div class="atelier-meta atelier-meta-left">
+    <span>NUESTRA</span><span>HISTORIA</span><span>CONTINÚA</span>
+    <i></i>
   </div>
 
-  <div class="floral floral-abajo-izquierda">
-    <svg viewBox="0 0 280 620">
-      <path class="tallo" d="M18 620 C40 545 58 485 75 430 C97 360 120 300 145 240 C170 178 197 110 235 0" />
-      <path class="rama rama-1" d="M58 487 C30 470 16 447 8 420" />
-      <path class="rama rama-2" d="M79 419 C108 402 127 378 140 349" />
-      <path class="rama rama-3" d="M111 328 C79 306 58 281 45 250" />
-      <path class="rama rama-4" d="M145 241 C174 224 193 201 206 172" />
-      <path class="rama rama-5" d="M179 155 C150 134 132 111 120 83" />
-      <path class="rama rama-6" d="M205 82 C226 67 240 48 250 26" />
-      <ellipse class="hoja hoja-1" cx="23" cy="438" rx="10" ry="23" />
-      <ellipse class="hoja hoja-2" cx="98" cy="396" rx="11" ry="24" />
-      <ellipse class="hoja hoja-3" cx="124" cy="362" rx="9" ry="20" />
-      <ellipse class="hoja hoja-4" cx="65" cy="283" rx="11" ry="25" />
-      <ellipse class="hoja hoja-5" cx="180" cy="210" rx="10" ry="23" />
-      <ellipse class="hoja hoja-6" cx="154" cy="153" rx="10" ry="22" />
-      <ellipse class="hoja hoja-7" cx="130" cy="110" rx="9" ry="21" />
-      <ellipse class="hoja hoja-8" cx="221" cy="63" rx="10" ry="23" />
-      <ellipse class="hoja hoja-9" cx="244" cy="38" rx="8" ry="18" />
-      <ellipse class="hoja hoja-10" cx="44" cy="522" rx="10" ry="22" />
-    </svg>
+  <div class="atelier-meta atelier-meta-center">
+    CAROLINA &amp; ALEXANDER
   </div>
 
-  <div class="contenido">
+  <div class="atelier-meta atelier-meta-right">
+    <span>14 · 11 · 2026</span>
+    <span>QUITO, ECUADOR</span>
+    <i></i>
+  </div>
 
-    <div class="sobrelinea">Nos casamos</div>
+  <div class="atelier-side atelier-side-left">
+    <span>AMOR</span><b>•</b><span>FAMILIA</span><b>•</b>
+    <span>AMIGOS</span><b>•</b><span>SIEMPRE</span>
+  </div>
 
-    <h1 class="nombres">
-      Carolina
-      <span class="ampersand">&</span>
-      Alexander
-    </h1>
+  <div class="atelier-side atelier-side-right">
+    <i></i><b>♥</b><i class="short"></i>
+    <span>JUNTOS</span><span>SIEMPRE</span>
+  </div>
 
-    <div class="separador"></div>
+  <div class="atelier-panel">
 
-    <div id="cargando">Preparando tu invitación...</div>
-
-    <div id="contenidoInvitado">
-      <div class="texto-invitacion">Invitación especial para</div>
-      <div id="nombreInvitado"></div>
-      <div id="cupos"></div>
-
-      <button class="boton" id="abrirInvitacion" type="button">
-        ABRIR INVITACIÓN
-      </button>
-
-      <div class="detalle-inferior">Nuestra historia comienza aquí</div>
+    <div class="atelier-monogram">
+      <span>C</span><i></i><span>A</span>
     </div>
 
-    <div id="error">
+    <svg class="atelier-sprig" viewBox="0 0 150 48" aria-hidden="true">
+      <path d="M25 30 C52 30, 74 19, 122 12" />
+      <path d="M48 27 C42 19, 38 17, 32 16" />
+      <path d="M61 24 C55 15, 51 13, 46 12" />
+      <path d="M75 21 C71 12, 67 10, 62 9" />
+      <path d="M88 18 C86 10, 82 7, 77 6" />
+      <path d="M101 15 C101 8, 98 5, 94 3" />
+      <path d="M57 25 C61 32, 66 34, 72 34" />
+      <path d="M72 22 C77 29, 82 31, 88 30" />
+      <path d="M88 18 C93 24, 98 25, 104 23" />
+      <path d="M104 14 C109 19, 114 19, 120 17" />
+    </svg>
+
+    <div id="cargando" class="atelier-loading">Preparando tu invitación...</div>
+
+    <div id="contenidoInvitado" class="atelier-guest">
+      <div class="texto-invitacion atelier-welcome">BIENVENIDO</div>
+      <div id="nombreInvitado"></div>
+      <div class="atelier-rule"></div>
+      <div id="cupos"></div>
+
+      <button class="boton atelier-enter" id="abrirInvitacion" type="button">
+        ENTRAR <span>→</span>
+      </button>
+    </div>
+
+    <div id="error" class="atelier-error">
       No pudimos encontrar esta invitación.
       <br>
       Revisa que hayas abierto el enlace correcto.
@@ -2485,7 +2711,13 @@ select {
 
   </div>
 
+  <div class="atelier-chapter">
+    <i></i>
+    UN NUEVO CAPÍTULO JUNTOS
+  </div>
+
 </section>
+
 
 
 <section class="segunda-seccion" id="segundaSeccion">
