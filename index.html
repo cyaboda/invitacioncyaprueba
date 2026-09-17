@@ -2542,6 +2542,101 @@ select {
   stroke-width:1.05 !important;
 }
 
+
+/* =========================================================
+   ATELIER V10 · ENTRADA EDITORIAL COREOGRAFIADA
+========================================================= */
+.portada-atelier-real.atelier-intro-ready .atelier-meta-left,
+.portada-atelier-real.atelier-intro-ready .atelier-meta-right,
+.portada-atelier-real.atelier-intro-ready .atelier-side-left,
+.portada-atelier-real.atelier-intro-ready .atelier-side-right,
+.portada-atelier-real.atelier-intro-ready .atelier-panel > *{
+  opacity:0;
+}
+
+.portada-atelier-real.atelier-intro-ready .atelier-meta-left{
+  transform:translateX(-12px);
+}
+.portada-atelier-real.atelier-intro-ready .atelier-meta-right{
+  transform:translateX(12px);
+}
+.portada-atelier-real.atelier-intro-ready .atelier-side-left{
+  transform:translateX(-10px);
+}
+.portada-atelier-real.atelier-intro-ready .atelier-side-right{
+  transform:translateX(10px);
+}
+.portada-atelier-real.atelier-intro-ready .atelier-panel > *{
+  transform:translateY(10px);
+}
+
+.portada-atelier-real.atelier-intro-play .atelier-meta-left{
+  animation:atelierFadeLeft .85s cubic-bezier(.22,.61,.36,1) .22s forwards;
+}
+.portada-atelier-real.atelier-intro-play .atelier-meta-right{
+  animation:atelierFadeRight .85s cubic-bezier(.22,.61,.36,1) .48s forwards;
+}
+.portada-atelier-real.atelier-intro-play .atelier-side-left{
+  animation:atelierFadeLeft .9s cubic-bezier(.22,.61,.36,1) .72s forwards;
+}
+.portada-atelier-real.atelier-intro-play .atelier-side-right{
+  animation:atelierFadeRight .9s cubic-bezier(.22,.61,.36,1) .98s forwards;
+}
+
+/* El centro se construye pieza por pieza */
+.portada-atelier-real.atelier-intro-play .atelier-panel > *{
+  animation:atelierCenterIn .82s cubic-bezier(.22,.61,.36,1) forwards;
+}
+.portada-atelier-real.atelier-intro-play .atelier-panel > *:nth-child(1){animation-delay:1.22s;}
+.portada-atelier-real.atelier-intro-play .atelier-panel > *:nth-child(2){animation-delay:1.34s;}
+.portada-atelier-real.atelier-intro-play .atelier-panel > *:nth-child(3){animation-delay:1.50s;}
+.portada-atelier-real.atelier-intro-play .atelier-panel > *:nth-child(4){animation-delay:1.66s;}
+.portada-atelier-real.atelier-intro-play .atelier-panel > *:nth-child(5){animation-delay:1.80s;}
+.portada-atelier-real.atelier-intro-play .atelier-panel > *:nth-child(6){animation-delay:1.94s;}
+.portada-atelier-real.atelier-intro-play .atelier-panel > *:nth-child(7){animation-delay:2.10s;}
+.portada-atelier-real.atelier-intro-play .atelier-panel > *:nth-child(8){animation-delay:2.24s;}
+
+@keyframes atelierFadeLeft{
+  from{opacity:0;transform:translateX(-12px);}
+  to{opacity:1;transform:translateX(0);}
+}
+@keyframes atelierFadeRight{
+  from{opacity:0;transform:translateX(12px);}
+  to{opacity:1;transform:translateX(0);}
+}
+@keyframes atelierCenterIn{
+  from{opacity:0;transform:translateY(10px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+/* Las líneas crecen después de aparecer sus bloques */
+.portada-atelier-real.atelier-intro-ready .atelier-meta-left::after,
+.portada-atelier-real.atelier-intro-ready .atelier-meta-right::after{
+  transform-origin:top;
+  transform:scaleY(0);
+}
+.portada-atelier-real.atelier-intro-play .atelier-meta-left::after{
+  animation:atelierLineY .75s ease .72s forwards;
+}
+.portada-atelier-real.atelier-intro-play .atelier-meta-right::after{
+  animation:atelierLineY .65s ease .95s forwards;
+}
+@keyframes atelierLineY{
+  to{transform:scaleY(1);}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .portada-atelier-real.atelier-intro-ready .atelier-meta-left,
+  .portada-atelier-real.atelier-intro-ready .atelier-meta-right,
+  .portada-atelier-real.atelier-intro-ready .atelier-side-left,
+  .portada-atelier-real.atelier-intro-ready .atelier-side-right,
+  .portada-atelier-real.atelier-intro-ready .atelier-panel > *{
+    opacity:1 !important;
+    transform:none !important;
+    animation:none !important;
+  }
+}
+
 </style>
 
 
@@ -5236,6 +5331,31 @@ setInterval(
 
 cargarInvitado();
 
+</script>
+
+
+<script>
+(function(){
+  const portada = document.getElementById('portada');
+  if(!portada) return;
+
+  // Prepare before the first painted animation frame.
+  portada.classList.add('atelier-intro-ready');
+
+  const iniciarIntroAtelier = () => {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        portada.classList.add('atelier-intro-play');
+      });
+    });
+  };
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', iniciarIntroAtelier, {once:true});
+  }else{
+    iniciarIntroAtelier();
+  }
+})();
 </script>
 
 </body>
