@@ -2426,6 +2426,87 @@ select {
   }
 }
 
+
+/* =========================================================
+   ATELIER V7 · AJUSTE ÓPTICO FINAL DEL CUADRO
+========================================================= */
+.atelier-sprig{
+  overflow:visible;
+}
+.atelier-sprig .sprig-stem{
+  fill:none;
+  stroke:#8a533e;
+  stroke-width:1.15;
+  stroke-linecap:round;
+}
+.atelier-sprig .sprig-leaves{
+  fill:#8a533e;
+  stroke:none;
+  opacity:.82;
+}
+
+@media (min-width:761px){
+  /* Centro real del panel físico del FONDOPC panorámico */
+  .atelier-panel{
+    left:48.05%;
+    top:45.65%;
+    width:31.4vw;
+    height:45.2vh;
+    min-height:0;
+    padding:0 2.1vw;
+    box-sizing:border-box;
+    justify-content:center;
+  }
+
+  .atelier-monogram{
+    font-size:32px;
+    line-height:1;
+  }
+  .atelier-monogram i{
+    height:38px;
+    margin:0 13px;
+  }
+
+  .atelier-sprig{
+    width:82px;
+    height:auto;
+    margin:4px 0 13px;
+  }
+
+  .portada-atelier-real .atelier-welcome{
+    margin:0 0 10px;
+    font-size:7px;
+    letter-spacing:4.4px;
+  }
+
+  .portada-atelier-real #nombreInvitado{
+    margin:0;
+    font-size:clamp(27px,2.35vw,39px);
+    line-height:1.02;
+  }
+
+  .atelier-rule{
+    width:40px;
+    margin:13px auto 11px;
+  }
+
+  .portada-atelier-real #cupos{
+    max-width:330px;
+    font-size:7px;
+    line-height:1.55;
+    letter-spacing:3px;
+  }
+
+  .atelier-enter{
+    min-width:220px;
+    margin-top:18px;
+    padding:11px 23px;
+    gap:34px;
+    font-size:8px;
+    letter-spacing:3.7px;
+  }
+}
+
 </style>
 
 
@@ -2728,18 +2809,25 @@ select {
       <span>C</span><i></i><span>A</span>
     </div>
 
-    <svg class="atelier-sprig" viewBox="0 0 150 48" aria-hidden="true">
-      <path d="M25 30 C52 30, 74 19, 122 12" />
-      <path d="M48 27 C42 19, 38 17, 32 16" />
-      <path d="M61 24 C55 15, 51 13, 46 12" />
-      <path d="M75 21 C71 12, 67 10, 62 9" />
-      <path d="M88 18 C86 10, 82 7, 77 6" />
-      <path d="M101 15 C101 8, 98 5, 94 3" />
-      <path d="M57 25 C61 32, 66 34, 72 34" />
-      <path d="M72 22 C77 29, 82 31, 88 30" />
-      <path d="M88 18 C93 24, 98 25, 104 23" />
-      <path d="M104 14 C109 19, 114 19, 120 17" />
-    </svg>
+    <svg class="atelier-sprig" viewBox="0 0 180 58" aria-hidden="true">
+  <g class="sprig-stem">
+    <path d="M27 39 C58 38 88 27 151 13"/>
+    <path d="M31 39 C52 42 78 43 101 39"/>
+  </g>
+  <g class="sprig-leaves">
+    <ellipse cx="49" cy="35" rx="11" ry="4.5" transform="rotate(25 49 35)"/>
+    <ellipse cx="61" cy="31" rx="11" ry="4.5" transform="rotate(-47 61 31)"/>
+    <ellipse cx="74" cy="30" rx="12" ry="4.7" transform="rotate(25 74 30)"/>
+    <ellipse cx="87" cy="25" rx="11" ry="4.4" transform="rotate(-48 87 25)"/>
+    <ellipse cx="101" cy="23" rx="11" ry="4.4" transform="rotate(24 101 23)"/>
+    <ellipse cx="114" cy="18" rx="10" ry="4.2" transform="rotate(-48 114 18)"/>
+    <ellipse cx="127" cy="17" rx="10" ry="4.1" transform="rotate(24 127 17)"/>
+    <ellipse cx="140" cy="13" rx="9" ry="3.8" transform="rotate(-43 140 13)"/>
+    <ellipse cx="55" cy="41" rx="9" ry="3.8" transform="rotate(20 55 41)"/>
+    <ellipse cx="72" cy="42" rx="9" ry="3.8" transform="rotate(-18 72 42)"/>
+    <ellipse cx="89" cy="40" rx="9" ry="3.8" transform="rotate(18 89 40)"/>
+  </g>
+</svg>
 
     <div id="cargando" class="atelier-loading">Preparando tu invitación...</div>
 
