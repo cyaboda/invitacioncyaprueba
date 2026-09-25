@@ -351,8 +351,12 @@ select {
   inset: 0;
   z-index: 1;
   background:
-    linear-gradient(90deg, rgba(35,18,13,.70) 0%, rgba(45,23,16,.42) 35%, rgba(55,29,20,.10) 68%, rgba(50,26,18,.16) 100%),
-    linear-gradient(0deg, rgba(31,16,12,.34) 0%, transparent 42%);
+    /* Capa editorial cálida: une visualmente esta página con la portada */
+    linear-gradient(rgba(108,52,34,.23), rgba(108,52,34,.23)),
+    /* Más profundidad detrás del versículo, sin oscurecer los rostros */
+    linear-gradient(90deg, rgba(31,15,11,.78) 0%, rgba(39,19,14,.58) 30%, rgba(51,25,18,.26) 52%, rgba(61,31,22,.08) 72%, rgba(50,25,18,.12) 100%),
+    /* Sombra inferior muy sutil para cerrar la composición */
+    linear-gradient(0deg, rgba(29,14,10,.30) 0%, transparent 40%);
 }
 
 .segunda-seccion::after {
@@ -361,7 +365,7 @@ select {
   inset: 0;
   z-index: 2;
   pointer-events: none;
-  background: radial-gradient(circle at 78% 40%, transparent 0 28%, rgba(46,22,15,.10) 70%, rgba(38,19,14,.20) 100%);
+  background: radial-gradient(circle at 76% 38%, transparent 0 27%, rgba(52,25,17,.08) 62%, rgba(35,17,12,.24) 100%);
 }
 
 .segunda-seccion.visible { opacity: 1; transform: translateY(0); }
