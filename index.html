@@ -2889,6 +2889,269 @@ select {
   .portada .atelier-guest .atelier-welcome,.portada .atelier-guest #nombreInvitado,.portada .atelier-guest .atelier-rule,.portada .atelier-guest #cupos,.portada .atelier-guest .atelier-enter { opacity:1 !important; animation:none !important; transform:none !important; filter:none !important; }
 }
 
+
+/* =========================================================
+   04 · EL LUGAR — ATELIER EDITORIAL V8
+========================================================= */
+.evento-atelier {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: none;
+  grid-template-columns: minmax(0, 56%) minmax(420px, 44%);
+  position: relative;
+  overflow: hidden;
+  background: #f3eadf;
+}
+.evento-atelier .evento-visual {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  overflow: hidden;
+  background: #6d3829;
+}
+.evento-atelier .evento-visual-principal {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  filter: saturate(.86) contrast(.96) sepia(.08);
+  transform: scale(1.01);
+}
+.evento-atelier .evento-visual-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(58,25,18,.26), rgba(98,43,29,.08) 58%, rgba(79,34,24,.20)),
+    linear-gradient(180deg, rgba(43,20,15,.10), transparent 48%, rgba(48,22,16,.20));
+  z-index: 1;
+}
+.evento-atelier .evento-visual-meta {
+  position: absolute;
+  left: 42px;
+  z-index: 3;
+  color: rgba(255,248,240,.88);
+  font-family: Arial,sans-serif;
+  font-size: 9px;
+  letter-spacing: 4px;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  text-transform: uppercase;
+}
+.evento-atelier .evento-visual-meta-top { top: 58px; }
+.evento-atelier .evento-visual-meta-bottom { bottom: 58px; }
+.evento-atelier .evento-polaroid {
+  position: absolute;
+  z-index: 4;
+  width: clamp(210px, 20vw, 330px);
+  aspect-ratio: .78;
+  right: -8%;
+  bottom: 9%;
+  padding: 10px;
+  background: #f8f0e6;
+  box-shadow: 0 22px 55px rgba(57,27,18,.28);
+  transform: rotate(-4deg);
+}
+.evento-atelier .evento-polaroid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.evento-atelier .evento-editorial {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 70% 18%, rgba(190,115,79,.08), transparent 30%),
+    #f7f0e7;
+}
+.evento-atelier .evento-editorial::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: .20;
+  pointer-events: none;
+  background-image: repeating-radial-gradient(circle at 0 0, rgba(91,57,41,.16) 0 0.55px, transparent .65px 4px);
+  background-size: 7px 7px;
+}
+.evento-atelier .evento-sombra {
+  position: absolute;
+  pointer-events: none;
+  opacity: .10;
+  filter: blur(10px);
+  background: #5e4a36;
+  border-radius: 50%;
+  transform: rotate(-30deg);
+}
+.evento-atelier .evento-sombra-a { width: 250px; height: 65px; right: -50px; top: 11%; }
+.evento-atelier .evento-sombra-b { width: 310px; height: 70px; right: -90px; bottom: 12%; transform: rotate(28deg); }
+.evento-atelier .evento-editorial-inner {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: clamp(55px, 6vh, 82px) clamp(52px, 6vw, 100px);
+  text-align: left;
+}
+.evento-atelier .evento-capitulo {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: clamp(42px, 6vh, 72px);
+  font-family: Arial,sans-serif;
+  color: #8f4933;
+  text-transform: uppercase;
+}
+.evento-atelier .evento-numero { font-family: Georgia,serif; font-size: 21px; letter-spacing: 5px; }
+.evento-atelier .evento-capitulo-titulo { font-size: 10px; letter-spacing: 5px; }
+.evento-atelier .evento-capitulo-linea { width: 46px; height: 1px; margin-top: 12px; background: rgba(143,73,51,.65); }
+.evento-atelier .evento-etiqueta {
+  margin: 0 0 22px;
+  font-family: Arial,sans-serif;
+  font-size: 10px;
+  line-height: 1.8;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #a35f47;
+}
+.evento-atelier .evento-titulo {
+  margin: 0;
+  font-size: clamp(48px, 4.5vw, 76px);
+  line-height: .98;
+  font-weight: 400;
+  color: #7d3f2d;
+}
+.evento-atelier .evento-subtitulo {
+  margin-top: 13px;
+  font-size: clamp(22px, 2.2vw, 34px);
+  line-height: 1.15;
+  font-style: italic;
+  color: #9b5a43;
+}
+.evento-atelier .evento-linea { width: 72px; height: 1px; margin: 28px 0 22px; background: rgba(143,73,51,.45); }
+.evento-atelier .evento-hora {
+  margin: 0;
+  font-size: clamp(64px, 6.5vw, 104px);
+  line-height: .9;
+  letter-spacing: -3px;
+  color: #8b432d;
+}
+.evento-atelier .evento-tipo {
+  margin-top: 12px;
+  font-family: Arial,sans-serif;
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #a5634c;
+}
+.evento-atelier .evento-direccion {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  margin-top: 30px;
+  font-family: Arial,sans-serif;
+  font-size: 13px;
+  line-height: 1.65;
+  color: #755347;
+}
+.evento-atelier .evento-pin { color: #a65137; font-size: 9px; margin-top: 5px; }
+.evento-atelier .evento-links { width: 100%; max-width: 430px; margin-top: 28px; }
+.evento-atelier .evento-link {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 3px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border: 0;
+  border-bottom: 1px solid rgba(143,73,51,.50);
+  border-radius: 0;
+  background: transparent;
+  color: #934b35;
+  text-decoration: none;
+  font-family: Arial,sans-serif;
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: padding .25s ease, color .25s ease;
+}
+.evento-atelier .evento-link:hover { padding-left: 8px; padding-right: 8px; color: #6f3527; }
+.evento-atelier .evento-link-button { appearance: none; }
+.evento-atelier .evento-nota {
+  margin-top: 30px;
+  font-family: Arial,sans-serif;
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: #a36d58;
+}
+
+@media (max-width: 760px) {
+  .evento-atelier {
+    min-height: auto;
+    grid-template-columns: 1fr;
+    overflow: visible;
+    background: #f7f0e7;
+  }
+  .evento-atelier .evento-visual {
+    min-height: 64svh;
+    height: 64svh;
+    overflow: visible;
+    z-index: 2;
+  }
+  .evento-atelier .evento-visual-principal {
+    object-position: center 36%;
+  }
+  .evento-atelier .evento-visual-meta {
+    left: 20px;
+    font-size: 7px;
+    letter-spacing: 3px;
+  }
+  .evento-atelier .evento-visual-meta-top { top: 30px; }
+  .evento-atelier .evento-visual-meta-bottom { bottom: 50px; }
+  .evento-atelier .evento-polaroid {
+    width: 43vw;
+    max-width: 185px;
+    min-width: 138px;
+    right: 8vw;
+    bottom: -13vh;
+    padding: 7px;
+    transform: rotate(-5deg);
+  }
+  .evento-atelier .evento-editorial {
+    min-height: auto;
+    overflow: hidden;
+    margin-top: 0;
+    clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%);
+    padding-top: 8vh;
+  }
+  .evento-atelier .evento-editorial-inner {
+    min-height: auto;
+    padding: 92px 30px 64px;
+    justify-content: flex-start;
+  }
+  .evento-atelier .evento-capitulo { margin-bottom: 52px; }
+  .evento-atelier .evento-numero { font-size: 18px; }
+  .evento-atelier .evento-capitulo-titulo { font-size: 9px; }
+  .evento-atelier .evento-etiqueta { font-size: 9px; line-height: 1.8; margin-bottom: 18px; }
+  .evento-atelier .evento-titulo { font-size: clamp(43px, 13vw, 60px); line-height: .98; }
+  .evento-atelier .evento-subtitulo { font-size: clamp(22px, 7vw, 30px); }
+  .evento-atelier .evento-linea { margin: 27px 0 24px; }
+  .evento-atelier .evento-hora { font-size: clamp(72px, 23vw, 102px); letter-spacing: -4px; }
+  .evento-atelier .evento-tipo { font-size: 8px; letter-spacing: 3px; }
+  .evento-atelier .evento-direccion { margin-top: 30px; font-size: 13px; }
+  .evento-atelier .evento-links { margin-top: 30px; max-width: none; }
+  .evento-atelier .evento-link { min-height: 54px; font-size: 8px; letter-spacing: 2.5px; }
+  .evento-atelier .evento-nota { margin-top: 36px; }
+}
+
 </style>
 
 
@@ -3337,61 +3600,54 @@ select {
 </section>
 
 
-<section class="evento-seccion" id="eventoSeccion">
+<section class="evento-seccion evento-atelier" id="eventoSeccion">
+  <div class="evento-visual">
+    <img src="F1.jpeg" class="evento-visual-principal" alt="Carolina y Alexander">
+    <div class="evento-visual-overlay"></div>
+    <div class="evento-visual-meta evento-visual-meta-top">QUITO · ECUADOR</div>
+    <div class="evento-visual-meta evento-visual-meta-bottom">14 NOV 2026</div>
 
-  <div class="evento-foto evento-foto-izquierda">
-    <img src="F1.jpeg" alt="">
+    <div class="evento-polaroid" aria-hidden="true">
+      <img src="F2.jpeg" alt="">
+    </div>
   </div>
 
-  <div class="evento-foto evento-foto-derecha">
-    <img src="F2.jpeg" alt="">
+  <div class="evento-editorial">
+    <div class="evento-sombra evento-sombra-a"></div>
+    <div class="evento-sombra evento-sombra-b"></div>
+
+    <div class="evento-editorial-inner">
+      <div class="evento-capitulo">
+        <span class="evento-numero">04 /</span>
+        <span class="evento-capitulo-titulo">EL LUGAR</span>
+        <span class="evento-capitulo-linea"></span>
+      </div>
+
+      <div class="evento-etiqueta">Aquí celebraremos<br>nuestro sí</div>
+      <h2 class="evento-titulo">Karla Ramírez</h2>
+      <div class="evento-subtitulo">Event Studio · La Solé</div>
+      <div class="evento-linea"></div>
+
+      <div class="evento-hora">16:30</div>
+      <div class="evento-tipo">Ceremonia &amp; Recepción</div>
+
+      <div class="evento-direccion">
+        <span class="evento-pin">●</span>
+        <span>Av. Gral. Rumiñahui S/N<br>171103 Quito</span>
+      </div>
+
+      <div class="evento-links">
+        <a href="https://maps.app.goo.gl/xiUM85L9tXQHW8Wp6" target="_blank" rel="noopener" class="evento-link">
+          <span>CÓMO LLEGAR</span><span>↗</span>
+        </a>
+        <button type="button" onclick="agregarAlCalendario()" class="evento-link evento-link-button">
+          <span>AGREGAR AL CALENDARIO</span><span>+</span>
+        </button>
+      </div>
+
+      <div class="evento-nota">14 · 11 · 2026</div>
+    </div>
   </div>
-
-  <div class="evento-centro">
-
-    <div class="evento-logo-marco">
-      <img src="LOGO.png" class="evento-logo" alt="Karla Ramírez Event Studio">
-    </div>
-
-    <div class="evento-etiqueta">Aquí celebraremos nuestro sí</div>
-    <h2 class="evento-titulo">Karla Ramírez</h2>
-    <div class="evento-subtitulo">Event Studio · La Solé</div>
-    <div class="evento-linea"></div>
-    <div class="evento-tipo">Ceremonia & Recepción</div>
-    <div class="evento-hora">16:30</div>
-    <div class="evento-hora-label">HORA DE LA CEREMONIA</div>
-
-    <div class="evento-direccion">
-      Av. Gral. Rumiñahui S/N
-      <br>
-      171103 Quito
-    </div>
-
-    <div class="evento-botones">
-
-      <a
-        class="evento-boton"
-        href="https://maps.app.goo.gl/xiUM85L9tXQHW8Wp6"
-        target="_blank"
-        rel="noopener"
-      >
-        ◇ &nbsp; CÓMO LLEGAR
-      </a>
-
-      <button
-        class="evento-boton evento-boton-calendario"
-        type="button"
-        onclick="agregarAlCalendario()"
-      >
-        ♡ &nbsp; AGREGAR AL CALENDARIO
-      </button>
-
-    </div>
-
-    <div class="evento-nota">14 · 11 · 2026</div>
-
-  </div>
-
 </section>
 
 
