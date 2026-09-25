@@ -3157,6 +3157,119 @@ select {
   .evento-atelier .evento-nota { margin-top: 36px; }
 }
 
+
+
+/* =========================================================
+   04 · EL LUGAR — ATELIER V10 · AJUSTE VISUAL FINAL
+   Más fiel al mockup aprobado
+========================================================= */
+@media (min-width: 761px) {
+  .evento-atelier {
+    grid-template-columns: minmax(0, 54%) minmax(0, 46%);
+    background:#f7f0e7;
+  }
+  .evento-atelier .evento-visual {
+    overflow: visible;
+    isolation:isolate;
+  }
+  .evento-atelier .evento-visual::after {
+    content:"";
+    position:absolute;
+    z-index:5;
+    top:-2%;
+    right:-12px;
+    width:30px;
+    height:104%;
+    pointer-events:none;
+    background:#f7f0e7;
+    clip-path:polygon(42% 0,72% 5%,45% 10%,69% 16%,40% 22%,70% 29%,43% 35%,67% 42%,39% 49%,72% 56%,44% 63%,68% 70%,40% 77%,72% 84%,46% 91%,65% 96%,43% 100%,100% 100%,100% 0);
+    filter:drop-shadow(-4px 0 8px rgba(69,36,25,.08));
+  }
+  .evento-atelier .evento-visual-principal {
+    object-position: 50% 50%;
+    transform:scale(.93);
+    width:107.6%;
+    height:107.6%;
+    left:-3.8%;
+    top:-3.8%;
+    max-width:none;
+    filter:saturate(.84) contrast(.95) sepia(.09) brightness(.98);
+  }
+  .evento-atelier .evento-visual-overlay {
+    background:
+      linear-gradient(90deg,rgba(50,22,16,.22),rgba(96,43,29,.05) 60%,rgba(76,33,23,.10)),
+      linear-gradient(180deg,rgba(43,20,15,.06),transparent 52%,rgba(48,22,16,.14));
+  }
+  .evento-atelier .evento-polaroid {
+    width:clamp(175px,15vw,245px);
+    right:-8.5%;
+    bottom:9%;
+    padding:8px 8px 12px;
+    transform:rotate(-3deg);
+    box-shadow:0 18px 44px rgba(57,27,18,.24);
+  }
+  .evento-atelier .evento-editorial {
+    overflow:hidden;
+  }
+  .evento-atelier .evento-editorial::after {
+    content:"";
+    position:absolute;
+    z-index:1;
+    width:430px;
+    height:430px;
+    right:-165px;
+    top:-95px;
+    opacity:.13;
+    pointer-events:none;
+    background:
+      radial-gradient(ellipse at 45% 50%, rgba(82,66,45,.48) 0 7%, transparent 8%),
+      radial-gradient(ellipse at 62% 37%, rgba(82,66,45,.40) 0 6%, transparent 7%),
+      radial-gradient(ellipse at 70% 58%, rgba(82,66,45,.38) 0 7%, transparent 8%),
+      linear-gradient(125deg, transparent 45%, rgba(82,66,45,.40) 46% 47%, transparent 48%);
+    filter:blur(12px);
+    transform:rotate(-18deg);
+  }
+  .evento-atelier .evento-editorial-inner {
+    padding:clamp(42px,5vh,66px) clamp(46px,4vw,68px) clamp(38px,4vh,56px) clamp(66px,5vw,92px);
+  }
+  .evento-atelier .evento-capitulo {
+    margin-bottom:clamp(28px,4vh,45px);
+  }
+  .evento-atelier .evento-titulo {
+    font-size:clamp(43px,3.8vw,64px);
+    max-width:100%;
+    white-space:nowrap;
+  }
+  .evento-atelier .evento-subtitulo {
+    font-size:clamp(21px,1.8vw,29px);
+  }
+  .evento-atelier .evento-linea {
+    margin:24px 0 20px;
+  }
+  .evento-atelier .evento-hora {
+    font-size:clamp(62px,5.5vw,88px);
+  }
+  .evento-atelier .evento-direccion { margin-top:25px; }
+  .evento-atelier .evento-links { margin-top:22px; }
+  .evento-atelier .evento-nota { margin-top:24px; }
+}
+
+@media (max-width: 760px) {
+  .evento-atelier .evento-visual-principal {
+    object-position:center 42%;
+    transform:scale(1);
+  }
+  .evento-atelier .evento-polaroid {
+    width:39vw;
+    max-width:168px;
+    right:7vw;
+    bottom:-10vh;
+  }
+  .evento-atelier .evento-editorial-inner {
+    padding-top:84px;
+  }
+}
+
 </style>
 
 
