@@ -2654,12 +2654,12 @@ select {
 .portada .atelier-sprig,
 .portada .atelier-chapter { opacity:0; }
 
-.portada.entrada-activa .atelier-side { animation:atelierReveal 1.05s cubic-bezier(.22,.75,.25,1) .18s forwards; }
-.portada.entrada-activa .atelier-side-right { animation-delay:.32s; }
-.portada.entrada-activa .atelier-monogram { animation:atelierMonogram 1.25s cubic-bezier(.2,.75,.2,1) .42s forwards; }
-.portada.entrada-activa .atelier-sprig { animation:atelierReveal .9s ease .78s forwards; }
-.portada.entrada-activa .atelier-sprig path { stroke-dasharray:220; stroke-dashoffset:220; animation:atelierSprigDraw 1.35s ease .88s forwards; }
-.portada.entrada-activa .atelier-chapter { animation:atelierReveal 1s ease 1.15s forwards; }
+.portada.atelier-intro-play .atelier-side { animation:atelierReveal 1.05s cubic-bezier(.22,.75,.25,1) .18s forwards; }
+.portada.atelier-intro-play .atelier-side-right { animation-delay:.32s; }
+.portada.atelier-intro-play .atelier-monogram { animation:atelierMonogram 1.25s cubic-bezier(.2,.75,.2,1) .42s forwards; }
+.portada.atelier-intro-play .atelier-sprig { animation:atelierReveal .9s ease .78s forwards; }
+.portada.atelier-intro-play .atelier-sprig path { stroke-dasharray:220; stroke-dashoffset:220; animation:atelierSprigDraw 1.35s ease .88s forwards; }
+.portada.atelier-intro-play .atelier-chapter { animation:atelierReveal 1s ease 1.15s forwards; }
 
 .portada .atelier-guest .atelier-welcome,
 .portada .atelier-guest #nombreInvitado,
@@ -2667,15 +2667,24 @@ select {
 .portada .atelier-guest #cupos,
 .portada .atelier-guest .atelier-enter { opacity:0; }
 
-.portada.entrada-activa .atelier-guest.revelar .atelier-welcome { animation:atelierReveal .8s ease .05s forwards; }
-.portada.entrada-activa .atelier-guest.revelar #nombreInvitado { animation:atelierReveal 1s cubic-bezier(.2,.75,.2,1) .20s forwards; }
-.portada.entrada-activa .atelier-guest.revelar .atelier-rule { animation:atelierReveal .8s ease .38s forwards; }
-.portada.entrada-activa .atelier-guest.revelar #cupos { animation:atelierReveal .85s ease .52s forwards; }
-.portada.entrada-activa .atelier-guest.revelar .atelier-enter { animation:atelierButtonIn .9s cubic-bezier(.2,.8,.2,1) .72s forwards; }
+.portada.atelier-intro-play .atelier-guest.revelar .atelier-welcome { animation:atelierReveal .8s ease .05s forwards; }
+.portada.atelier-intro-play .atelier-guest.revelar #nombreInvitado { animation:atelierReveal 1s cubic-bezier(.2,.75,.2,1) .20s forwards; }
+.portada.atelier-intro-play .atelier-guest.revelar .atelier-rule { animation:atelierReveal .8s ease .38s forwards; }
+.portada.atelier-intro-play .atelier-guest.revelar #cupos { animation:atelierReveal .85s ease .52s forwards; }
+.portada.atelier-intro-play .atelier-guest.revelar .atelier-enter { animation:atelierButtonIn .9s cubic-bezier(.2,.8,.2,1) .72s forwards; }
 
 .atelier-enter { transition:transform .35s ease, box-shadow .35s ease, filter .35s ease; overflow:hidden; position:relative; }
 .atelier-enter:hover { transform:translateY(-3px); box-shadow:0 18px 40px rgba(117,62,42,.26); filter:brightness(1.04); }
 .atelier-enter span { display:inline-block; margin-left:8px; animation:atelierArrow 1.8s ease-in-out 2.2s infinite; }
+
+/* Fallback de seguridad: el invitado nunca queda invisible si la carga terminó */
+.portada .atelier-guest.revelar .atelier-welcome,
+.portada .atelier-guest.revelar #nombreInvitado,
+.portada .atelier-guest.revelar .atelier-rule,
+.portada .atelier-guest.revelar #cupos,
+.portada .atelier-guest.revelar .atelier-enter {
+  visibility: visible;
+}
 
 @media (prefers-reduced-motion: reduce) {
   .portada .atelier-side,.portada .atelier-monogram,.portada .atelier-sprig,.portada .atelier-chapter,
