@@ -3537,6 +3537,227 @@ select {
   #segundaSeccion .flecha{margin:0;}
 }
 </style>
+
+<style id="atelier-lugar-v11">
+/* =========================================================
+   04 · EL LUGAR · ATELIER V11
+   Diseño realizable 100% con HTML/CSS + JARDIN.png
+========================================================= */
+.evento-atelier-lugar-v11{
+  grid-template-columns:minmax(0,56%) minmax(0,44%);
+}
+.evento-atelier-lugar-v11 .evento-visual{
+  overflow:hidden;
+}
+.evento-atelier-lugar-v11 .evento-visual::after{
+  display:none !important;
+}
+.evento-atelier-lugar-v11 .evento-visual-principal{
+  width:100%;
+  height:100%;
+  left:0;
+  top:0;
+  transform:none;
+  object-position:center 42%;
+}
+.evento-atelier-lugar-v11 .evento-editorial-inner{
+  width:100%;
+  min-height:100vh;
+  min-height:100svh;
+  display:grid;
+  grid-template-columns:minmax(0,1.08fr) minmax(175px,.72fr);
+  align-items:center;
+  gap:clamp(26px,2.5vw,48px);
+  padding:clamp(42px,5vh,68px) clamp(34px,3.2vw,58px);
+}
+.evento-atelier-lugar-v11 .evento-info{
+  min-width:0;
+}
+.evento-atelier-lugar-v11 .evento-capitulo{
+  margin-bottom:clamp(30px,4.5vh,48px);
+}
+.evento-atelier-lugar-v11 .evento-titulo{
+  font-size:clamp(42px,3.25vw,61px);
+  white-space:nowrap;
+}
+.evento-atelier-lugar-v11 .evento-subtitulo{
+  font-size:clamp(20px,1.7vw,29px);
+}
+.evento-atelier-lugar-v11 .evento-hora-fila{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+.evento-atelier-lugar-v11 .evento-reloj{
+  flex:0 0 auto;
+  width:38px;
+  height:38px;
+  border:1px solid rgba(139,67,45,.72);
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  font-family:Georgia,serif;
+  font-size:25px;
+  line-height:1;
+  color:#8b432d;
+}
+.evento-atelier-lugar-v11 .evento-hora{
+  font-size:clamp(58px,5vw,86px);
+}
+.evento-atelier-lugar-v11 .evento-tipo{
+  margin-top:8px;
+}
+.evento-atelier-lugar-v11 .evento-ubicacion{
+  margin-top:28px;
+}
+.evento-atelier-lugar-v11 .evento-ciudad{
+  width:max-content;
+  max-width:100%;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  padding:7px 14px;
+  border:1px solid rgba(143,73,51,.50);
+  border-radius:999px;
+  font-family:Arial,sans-serif;
+  font-size:8px;
+  letter-spacing:2.5px;
+  color:#934b35;
+  text-transform:uppercase;
+}
+.evento-atelier-lugar-v11 .evento-ciudad span{
+  font-size:7px;
+}
+.evento-atelier-lugar-v11 .evento-direccion{
+  margin-top:12px;
+  padding-left:3px;
+}
+.evento-atelier-lugar-v11 .evento-links{
+  margin-top:22px;
+}
+.evento-atelier-lugar-v11 .evento-jardin{
+  align-self:center;
+  width:100%;
+  margin:0;
+}
+.evento-atelier-lugar-v11 .evento-jardin img{
+  display:block;
+  width:100%;
+  aspect-ratio:.72;
+  object-fit:cover;
+  object-position:center;
+  border-radius:120px 120px 0 0;
+  box-shadow:0 20px 42px rgba(77,43,31,.12);
+}
+.evento-atelier-lugar-v11 .evento-jardin figcaption{
+  margin-top:18px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(13px,1vw,16px);
+  line-height:1.55;
+  font-style:italic;
+  color:#a26c57;
+}
+.evento-atelier-lugar-v11 .evento-nota{
+  margin-top:24px;
+}
+
+@media (max-width:1180px) and (min-width:761px){
+  .evento-atelier-lugar-v11{
+    grid-template-columns:minmax(0,52%) minmax(0,48%);
+  }
+  .evento-atelier-lugar-v11 .evento-editorial-inner{
+    grid-template-columns:minmax(0,1fr) minmax(145px,.55fr);
+    gap:22px;
+    padding-left:36px;
+    padding-right:30px;
+  }
+  .evento-atelier-lugar-v11 .evento-titulo{
+    font-size:clamp(38px,3.7vw,52px);
+  }
+}
+
+@media (max-width:760px){
+  .evento-atelier-lugar-v11{
+    display:none;
+    grid-template-columns:1fr;
+    background:#f7f0e7;
+  }
+  .evento-seccion.evento-atelier-lugar-v11[style*="display: grid"]{
+    display:grid !important;
+  }
+  .evento-atelier-lugar-v11 .evento-visual{
+    height:68svh;
+    min-height:68svh;
+    overflow:hidden;
+  }
+  .evento-atelier-lugar-v11 .evento-visual-principal{
+    object-position:center 42%;
+  }
+  .evento-atelier-lugar-v11 .evento-editorial{
+    margin-top:0;
+    clip-path:none;
+    padding-top:0;
+  }
+  .evento-atelier-lugar-v11 .evento-editorial-inner{
+    min-height:auto;
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    gap:0;
+    padding:54px 28px 56px;
+  }
+  .evento-atelier-lugar-v11 .evento-capitulo{
+    margin-bottom:48px;
+  }
+  .evento-atelier-lugar-v11 .evento-titulo{
+    font-size:clamp(45px,13vw,60px);
+    white-space:normal;
+  }
+  .evento-atelier-lugar-v11 .evento-subtitulo{
+    font-size:clamp(22px,7vw,30px);
+  }
+  .evento-atelier-lugar-v11 .evento-hora-fila{
+    gap:14px;
+  }
+  .evento-atelier-lugar-v11 .evento-reloj{
+    width:35px;
+    height:35px;
+    font-size:23px;
+  }
+  .evento-atelier-lugar-v11 .evento-hora{
+    font-size:clamp(68px,21vw,94px);
+    letter-spacing:-3px;
+  }
+  .evento-atelier-lugar-v11 .evento-ubicacion{
+    margin-top:30px;
+  }
+  .evento-atelier-lugar-v11 .evento-ciudad{
+    font-size:8px;
+    letter-spacing:2.2px;
+  }
+  .evento-atelier-lugar-v11 .evento-direccion{
+    margin-top:13px;
+  }
+  .evento-atelier-lugar-v11 .evento-links{
+    margin-top:27px;
+  }
+  .evento-atelier-lugar-v11 .evento-jardin{
+    margin-top:40px;
+  }
+  .evento-atelier-lugar-v11 .evento-jardin img{
+    aspect-ratio:1.18;
+    border-radius:72px 0 0 0;
+  }
+  .evento-atelier-lugar-v11 .evento-jardin figcaption{
+    margin-top:16px;
+    font-size:15px;
+  }
+  .evento-atelier-lugar-v11 .evento-nota{
+    margin-top:28px;
+  }
+}
+</style>
+
 </head>
 
 <body>
@@ -3718,52 +3939,59 @@ select {
 </section>
 
 
-<section class="evento-seccion evento-atelier" id="eventoSeccion">
+<section class="evento-seccion evento-atelier evento-atelier-lugar-v11" id="eventoSeccion">
   <div class="evento-visual">
     <img src="F1.jpeg" class="evento-visual-principal" alt="Carolina y Alexander">
     <div class="evento-visual-overlay"></div>
     <div class="evento-visual-meta evento-visual-meta-top">QUITO · ECUADOR</div>
     <div class="evento-visual-meta evento-visual-meta-bottom">14 NOV 2026</div>
-
-    <div class="evento-polaroid" aria-hidden="true">
-      <img src="F2.jpeg" alt="">
-    </div>
   </div>
 
   <div class="evento-editorial">
-    <div class="evento-sombra evento-sombra-a"></div>
-    <div class="evento-sombra evento-sombra-b"></div>
-
     <div class="evento-editorial-inner">
-      <div class="evento-capitulo">
-        <span class="evento-numero">04 /</span>
-        <span class="evento-capitulo-titulo">EL LUGAR</span>
-        <span class="evento-capitulo-linea"></span>
+      <div class="evento-info">
+        <div class="evento-capitulo">
+          <span class="evento-numero">04 /</span>
+          <span class="evento-capitulo-titulo">EL LUGAR</span>
+          <span class="evento-capitulo-linea"></span>
+        </div>
+
+        <div class="evento-etiqueta">Aquí celebraremos<br>nuestro sí</div>
+        <h2 class="evento-titulo">Karla Ramírez</h2>
+        <div class="evento-subtitulo">Event Studio · La Solé</div>
+        <div class="evento-linea"></div>
+
+        <div class="evento-hora-fila">
+          <span class="evento-reloj" aria-hidden="true">◷</span>
+          <div>
+            <div class="evento-hora">16:30</div>
+            <div class="evento-tipo">Ceremonia &amp; Recepción</div>
+          </div>
+        </div>
+
+        <div class="evento-ubicacion">
+          <div class="evento-ciudad"><span aria-hidden="true">●</span> QUITO · ECUADOR</div>
+          <div class="evento-direccion">
+            <span>Av. Gral. Rumiñahui S/N<br>171103 Quito</span>
+          </div>
+        </div>
+
+        <div class="evento-links">
+          <a href="https://maps.app.goo.gl/xiUM85L9tXQHW8Wp6" target="_blank" rel="noopener" class="evento-link">
+            <span>CÓMO LLEGAR</span><span>↗</span>
+          </a>
+          <button type="button" onclick="agregarAlCalendario()" class="evento-link evento-link-button">
+            <span>AGREGAR AL CALENDARIO</span><span>+</span>
+          </button>
+        </div>
+
+        <div class="evento-nota">14 · 11 · 2026</div>
       </div>
 
-      <div class="evento-etiqueta">Aquí celebraremos<br>nuestro sí</div>
-      <h2 class="evento-titulo">Karla Ramírez</h2>
-      <div class="evento-subtitulo">Event Studio · La Solé</div>
-      <div class="evento-linea"></div>
-
-      <div class="evento-hora">16:30</div>
-      <div class="evento-tipo">Ceremonia &amp; Recepción</div>
-
-      <div class="evento-direccion">
-        <span class="evento-pin">●</span>
-        <span>Av. Gral. Rumiñahui S/N<br>171103 Quito</span>
-      </div>
-
-      <div class="evento-links">
-        <a href="https://maps.app.goo.gl/xiUM85L9tXQHW8Wp6" target="_blank" rel="noopener" class="evento-link">
-          <span>CÓMO LLEGAR</span><span>↗</span>
-        </a>
-        <button type="button" onclick="agregarAlCalendario()" class="evento-link evento-link-button">
-          <span>AGREGAR AL CALENDARIO</span><span>+</span>
-        </button>
-      </div>
-
-      <div class="evento-nota">14 · 11 · 2026</div>
+      <figure class="evento-jardin">
+        <img src="JARDIN.png" alt="Jardín de Karla Ramírez Event Studio · La Solé">
+        <figcaption>Un lugar donde los grandes momentos<br>se vuelven eternos.</figcaption>
+      </figure>
     </div>
   </div>
 </section>
