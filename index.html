@@ -4532,18 +4532,36 @@ select {
    CONFIGURACIÓN
 ========================================================= */
 
-/* Google Apps Script retirado. Supabase pendiente de configuración. */
+/* Invitaciones y RSVP conectados a Supabase. */
+const SUPABASE_URL = "https://vgoooyctkzvaeknrlzvu.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_X8f3MFYjB1DFVKqo40xajA_6PA3AMFE";
+const EVENTO_SUPABASE = "caro_alex";
 
-// MODO DE PRUEBA: invitado ficticio para trabajar el rediseño sin tocar la base real.
-const MODO_DEMO = true;
-const INVITADO_DEMO = {
-  ok: true,
-  invitado: "Invitado CELEA",
-  cupos: 2,
-  estado: "PENDIENTE",
-  asisten: "",
-  acompanantes: ""
-};
+async function llamarSupabaseRPC(funcion, parametrosRPC) {
+  const respuesta = await fetch(
+    SUPABASE_URL + "/rest/v1/rpc/" + funcion,
+    {
+      method: "POST",
+      headers: {
+        "apikey": SUPABASE_PUBLISHABLE_KEY,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(parametrosRPC || {}),
+      cache: "no-store"
+    }
+  );
+
+  if (!respuesta.ok) {
+    let detalle = "";
+    try { detalle = await respuesta.text(); } catch (e) {}
+    throw new Error(
+      "Supabase " + respuesta.status +
+      (detalle ? ": " + detalle : "")
+    );
+  }
+
+  return await respuesta.json();
+}
 
 const parametros =
 new URLSearchParams(window.location.search);
@@ -4600,9 +4618,7 @@ function obtenerCodigoInvitacion() {
   return "";
 }
 
-const codigo = MODO_DEMO
-? "DEMO-CARO-ALEX"
-: obtenerCodigoInvitacion();
+const codigo = obtenerCodigoInvitacion();
 
 // Si venimos del 404 interno, recuperamos la URL bonita.
 const rutaBonitaPendiente =
@@ -4787,8 +4803,50 @@ function abrirGoogleCalendar() {
 ========================================================= */
 
 async function cargarInvitado() {
-  // Vista de prueba hasta configurar Supabase para invitados y RSVP.
-  recibirInvitado({ ...INVITADO_DEMO });
+
+  if (!codigo) {
+    mostrarError(
+      "No encontramos un código de invitación en este enlace."
+    );
+    return;
+  }
+
+  try {
+    const filas = await llamarSupabaseRPC(
+      "obtener_invitado",
+      {
+        p_evento: EVENTO_SUPABASE,
+        p_codigo: codigo
+      }
+    );
+
+    const invitado =
+      Array.isArray(filas) && filas.length
+      ? filas[0]
+      : null;
+
+    if (!invitado) {
+      mostrarError();
+      return;
+    }
+
+    recibirInvitado({
+      ok: true,
+      codigo: invitado.codigo,
+      invitado: invitado.nombre,
+      cupos: invitado.cupos,
+      estado: invitado.estado || "",
+      asisten: Number(invitado.asisten) || 0,
+      acompanantes: invitado.acompanantes || "",
+      notaRegalo: invitado.nota || ""
+    });
+
+  } catch (error) {
+    console.error("Error cargando invitado desde Supabase:", error);
+    mostrarError(
+      "No pudimos cargar tu invitación. Intenta recargar la página."
+    );
+  }
 }
 
 
@@ -5374,7 +5432,93 @@ rsvpConfirmar.addEventListener(
 );
 
 async function guardarRSVP() {
-  rsvpMensaje.textContent = "Las confirmaciones estarán disponibles cuando conectemos Supabase. Tu respuesta aún no se ha guardado.";
+
+  if (!respuestaRSVP) {
+    rsvpMensaje.textContent =
+    "Selecciona una respuesta.";
+    return;
+  }
+
+  let acompanantes = [];
+
+  if (respuestaRSVP === "SI") {
+    const campos =
+    document.querySelectorAll(
+      ".acompanante-campo"
+    );
+
+    let incompleto = false;
+
+    campos.forEach(function (campo) {
+      const nombre = campo.value.trim();
+      if (!nombre) {
+        incompleto = true;
+      } else {
+        acompanantes.push(nombre);
+      }
+    });
+
+    if (incompleto) {
+      rsvpMensaje.textContent =
+      "Escribe el nombre completo de cada acompañante.";
+      return;
+    }
+  }
+
+  rsvpConfirmar.disabled = true;
+  rsvpMensaje.textContent =
+  "Guardando tu respuesta...";
+
+  const estado =
+    respuestaRSVP === "SI"
+    ? "CONFIRMADO"
+    : "NO ASISTE";
+
+  const asisten =
+    respuestaRSVP === "SI"
+    ? cantidadAsistentes
+    : 0;
+
+  const nombresAcompanantes =
+    respuestaRSVP === "SI"
+    ? acompanantes.join(", ")
+    : "";
+
+  try {
+    const guardado = await llamarSupabaseRPC(
+      "responder_invitacion",
+      {
+        p_evento: EVENTO_SUPABASE,
+        p_codigo: codigo,
+        p_estado: estado,
+        p_asisten: asisten,
+        p_acompanantes: nombresAcompanantes || null,
+        p_nota: invitadoActual && invitadoActual.notaRegalo
+          ? invitadoActual.notaRegalo
+          : null
+      }
+    );
+
+    if (guardado !== true) {
+      rsvpConfirmar.disabled = false;
+      rsvpMensaje.textContent =
+      "No pudimos guardar tu respuesta.";
+      return;
+    }
+
+    recibirConfirmacion({
+      ok: true,
+      estado: estado,
+      asisten: asisten,
+      acompanantes: nombresAcompanantes
+    });
+
+  } catch (error) {
+    console.error("Error guardando RSVP en Supabase:", error);
+    rsvpConfirmar.disabled = false;
+    rsvpMensaje.textContent =
+    "No pudimos guardar tu respuesta. Intenta nuevamente.";
+  }
 }
 
 function recibirConfirmacion(datos) {
@@ -5618,7 +5762,61 @@ notaRegaloTexto.addEventListener(
 );
 
 async function guardarNotaRegalo() {
-  notaRegaloMensaje.textContent = "Las notas estarán disponibles cuando conectemos Supabase. Tu mensaje aún no se ha guardado.";
+
+  const nota = notaRegaloTexto.value.trim();
+
+  if (!nota) {
+    notaRegaloMensaje.textContent =
+    "Escribe unas palabras antes de enviar.";
+    notaRegaloTexto.focus();
+    return;
+  }
+
+  botonEnviarNotaRegalo.disabled = true;
+  notaRegaloMensaje.textContent =
+  "Guardando tu nota...";
+
+  try {
+    const guardado = await llamarSupabaseRPC(
+      "guardar_nota_regalo",
+      {
+        p_evento: EVENTO_SUPABASE,
+        p_codigo: codigo,
+        p_nota: nota
+      }
+    );
+
+    if (guardado !== true) {
+      notaRegaloMensaje.textContent =
+      "No pudimos guardar tu nota. Inténtalo nuevamente.";
+      botonEnviarNotaRegalo.disabled = false;
+      return;
+    }
+
+    if (invitadoActual) {
+      invitadoActual.notaRegalo = nota;
+    }
+
+    notaRegaloMensaje.textContent =
+    "Gracias por tus palabras 🤍 Tu nota ha sido guardada.";
+
+    estadoNotaRegalo.textContent =
+    "TU NOTA HA SIDO GUARDADA ♡";
+
+    botonAbrirNotaRegalo.textContent =
+    "EDITAR MI NOTA";
+
+    setTimeout(function () {
+      cerrarModalNotaRegalo();
+    }, 1600);
+
+  } catch (error) {
+    console.error("Error guardando nota en Supabase:", error);
+    notaRegaloMensaje.textContent =
+    "No pudimos guardar tu nota. Revisa tu conexión e inténtalo nuevamente.";
+  } finally {
+    botonEnviarNotaRegalo.disabled = false;
+  }
 }
 
 botonEnviarNotaRegalo.addEventListener(
