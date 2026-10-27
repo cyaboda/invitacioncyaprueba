@@ -3357,6 +3357,71 @@ select {
 .atelier-modal-caja .atelier-modal-dato .dato-label { font-size:10px; letter-spacing:.16em; color:#a97564; margin-bottom:6px; }
 .atelier-modal-caja .atelier-modal-dato .dato-valor { font-size:16px; color:#5a352c; }
 .atelier-modal-caja { max-height:calc(100dvh - 36px); overflow-y:auto; }
+
+/* ATELIER 07 — RSVP editorial aprobado; sin alterar la lógica existente */
+.rsvp-seccion {
+  background: linear-gradient(135deg,#612c25 0%,#57231e 52%,#491b18 100%);
+  padding: clamp(42px,6vh,70px) 24px;
+}
+.rsvp-seccion .scroll-botanical {color:rgba(230,185,155,.27)}
+.rsvp-contenido {max-width:1040px}
+.rsvp-icono {
+  display:flex;align-items:center;justify-content:center;
+  width:58px;height:58px;margin:0 auto 18px;
+  border:1px solid rgba(255,226,207,.43);border-radius:50%;
+  font-family:Georgia,serif;font-size:28px;color:#ffe5d4;
+}
+.rsvp-etiqueta {letter-spacing:5px;font-size:10px;color:#e4b5a0}
+.rsvp-titulo {
+  font-size:clamp(42px,6.7vw,88px);
+  letter-spacing:-.035em;line-height:1.12;margin:18px 0 0;
+}
+.rsvp-subtitulo {font-size:clamp(17px,2.1vw,25px);margin-top:17px}
+.rsvp-linea {width:112px;margin:22px auto 30px;background:rgba(255,227,208,.44)}
+.rsvp-panel,.rsvp-resultado {
+  max-width:920px;border-radius:28px;
+  border:1px solid rgba(255,227,208,.58);
+  background:rgba(255,255,255,.018);
+  padding:32px clamp(18px,5vw,58px);
+  box-shadow:none;
+}
+.rsvp-invitado-label {font-size:10px;letter-spacing:4px;color:#e9bca9}
+.rsvp-invitado {font-size:clamp(31px,4vw,49px);margin-top:12px}
+.rsvp-cupos {font-size:14px;margin-top:9px;color:#e9c9bb}
+.rsvp-ornamento {display:flex;align-items:center;justify-content:center;gap:20px;margin-top:22px;color:#e8bca8;font-size:25px}
+.rsvp-ornamento span {height:1px;width:min(17%,120px);background:rgba(255,225,208,.33)}
+.rsvp-pregunta {margin-top:9px;font-size:clamp(20px,2.2vw,26px)}
+.rsvp-opciones {gap:20px;margin-top:24px}
+.rsvp-opcion {
+  min-width:0;width:min(50%,375px);min-height:64px;
+  display:flex;align-items:center;justify-content:center;gap:15px;
+  border:1px solid rgba(255,224,207,.62);
+  background:transparent;color:#fff3eb;
+  font-size:11px;letter-spacing:2.7px;font-weight:600;
+  transition:background .2s ease,color .2s ease,transform .2s ease;
+}
+.rsvp-opcion:hover {background:rgba(255,235,221,.12);transform:translateY(-2px)}
+.rsvp-opcion.seleccionado {background:#f9e7d7;color:#55231e;border-color:#f9e7d7}
+.rsvp-boton-icono {display:grid;place-items:center;flex:0 0 30px;height:30px;border:1px solid currentColor;border-radius:50%;font-size:18px;font-weight:400}
+.rsvp-cierre {display:flex;align-items:center;flex-direction:column;gap:10px;margin-top:31px;color:#e5bba7;font:10px Arial,sans-serif;letter-spacing:4px}
+.rsvp-cierre-rama {font:29px Georgia,serif;line-height:1}
+.rsvp-confirmar {padding:15px 32px;font-weight:600}
+@media(max-width:700px){
+ .rsvp-seccion {padding:42px 17px 55px}
+ .rsvp-icono {width:48px;height:48px;margin-bottom:13px}
+ .rsvp-etiqueta {font-size:8px;letter-spacing:3px}
+ .rsvp-titulo {font-size:clamp(36px,9vw,52px);line-height:1.13}
+ .rsvp-subtitulo {font-size:17px}
+ .rsvp-linea {margin:18px auto 22px}
+ .rsvp-panel,.rsvp-resultado {padding:26px 17px;border-radius:22px}
+ .rsvp-invitado {font-size:clamp(27px,8vw,38px)}
+ .rsvp-cupos {font-size:12px}
+ .rsvp-opciones {flex-direction:column;gap:12px}
+ .rsvp-opcion {width:100%;min-height:54px;font-size:10px}
+ .rsvp-cierre {font-size:8px;letter-spacing:2px;line-height:1.8}
+}
+@media(prefers-reduced-motion:reduce){.rsvp-opcion{transition:none}.rsvp-opcion:hover{transform:none}}
+
 </style>
 
 
@@ -4297,11 +4362,11 @@ select {
       <div class="rsvp-invitado-label">INVITACIÓN PARA</div>
       <div class="rsvp-invitado" id="rsvpNombre"></div>
       <div class="rsvp-cupos" id="rsvpCupos"></div>
-      <div class="rsvp-pregunta">¿Nos acompañarás?</div>
+      <div class="rsvp-ornamento" aria-hidden="true"><span></span>♡<span></span></div><div class="rsvp-pregunta">¿Nos acompañarás?</div>
 
       <div class="rsvp-opciones">
-        <button class="rsvp-opcion" id="rsvpSi" type="button">SÍ, ASISTIRÉ</button>
-        <button class="rsvp-opcion" id="rsvpNo" type="button">NO PODRÉ ASISTIR</button>
+        <button class="rsvp-opcion" id="rsvpSi" type="button"><span class="rsvp-boton-icono" aria-hidden="true">✓</span>SÍ, ASISTIRÉ</button>
+        <button class="rsvp-opcion" id="rsvpNo" type="button"><span class="rsvp-boton-icono" aria-hidden="true">×</span>NO PODRÉ ASISTIR</button>
       </div>
 
       <div class="rsvp-detalles" id="rsvpDetalles">
@@ -4341,7 +4406,7 @@ select {
       </button>
 
     </div>
-
+    <div class="rsvp-cierre" aria-hidden="true"><span class="rsvp-cierre-rama">❧</span><span>GRACIAS POR SER PARTE DE NUESTRA HISTORIA</span></div>
   </div>
 
 </section>
