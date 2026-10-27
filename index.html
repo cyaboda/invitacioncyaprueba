@@ -4237,12 +4237,12 @@ select {
     <div class="bancos-preview">
       <button class="banco-preview" type="button" data-banco="pichincha" aria-label="Ver datos de Banco Pichincha">
         <span class="banco-icono" aria-hidden="true">♧</span>
-        <span class="banco-preview-info"><span class="banco-preview-nombre">Banco Pichincha</span><span class="banco-preview-titular">Carolina Pricila González Almeida</span></span>
+        <span class="banco-preview-info"><span class="banco-preview-nombre">Banco Pichincha</span><span class="banco-preview-titular">González Almeida Carolina Pricila</span></span>
         <span class="banco-preview-flecha" aria-hidden="true">›</span>
       </button>
       <button class="banco-preview" type="button" data-banco="guayaquil" aria-label="Ver datos de Banco Guayaquil">
         <span class="banco-icono" aria-hidden="true">♧</span>
-        <span class="banco-preview-info"><span class="banco-preview-nombre">Banco Guayaquil</span><span class="banco-preview-titular">Darling Alexander Mendoza Pérez</span></span>
+        <span class="banco-preview-info"><span class="banco-preview-nombre">Banco Guayaquil</span><span class="banco-preview-titular">Mendoza Pérez Darling Alexander</span></span>
         <span class="banco-preview-flecha" aria-hidden="true">›</span>
       </button>
     </div>
@@ -4460,8 +4460,7 @@ select {
    CONFIGURACIÓN
 ========================================================= */
 
-const API_URL =
-"https://script.google.com/macros/s/AKfycbz_-f9kBoM8sUsXhQ9BqC4MuiWM3H8QtZrAIO6-Fgw-GZsttL3mVH4GUk5mT_3ZqgwxcA/exec";
+/* Google Apps Script retirado. Supabase pendiente de configuración. */
 
 // MODO DE PRUEBA: invitado ficticio para trabajar el rediseño sin tocar la base real.
 const MODO_DEMO = true;
@@ -4708,99 +4707,7 @@ function abrirGoogleCalendar() {
    JSONP
 ========================================================= */
 
-function consultaJSONP(
-  url,
-  callbackNombre,
-  timeoutMs
-) {
-
-  return new Promise(
-    function (resolve, reject) {
-
-      const script =
-      document.createElement("script");
-
-      let terminado = false;
-
-      const limpiar = function () {
-
-        if (script.parentNode) {
-          script.parentNode.removeChild(script);
-        }
-
-        try {
-          delete window[callbackNombre];
-        } catch (e) {
-          window[callbackNombre] = undefined;
-        }
-
-      };
-
-      const temporizador =
-      setTimeout(
-        function () {
-
-          if (terminado) {
-            return;
-          }
-
-          terminado = true;
-
-          limpiar();
-
-          reject(
-            new Error("Tiempo de espera agotado")
-          );
-
-        },
-        timeoutMs || 9000
-      );
-
-      window[callbackNombre] =
-      function (datos) {
-
-        if (terminado) {
-          return;
-        }
-
-        terminado = true;
-
-        clearTimeout(temporizador);
-
-        limpiar();
-
-        resolve(datos);
-
-      };
-
-      script.onerror =
-      function () {
-
-        if (terminado) {
-          return;
-        }
-
-        terminado = true;
-
-        clearTimeout(temporizador);
-
-        limpiar();
-
-        reject(
-          new Error("Error al cargar Apps Script")
-        );
-
-      };
-
-      script.src = url;
-      script.async = true;
-
-      document.body.appendChild(script);
-
-    }
-  );
-
-}
+/* Consulta JSONP eliminada: no se utiliza Google Apps Script. */
 
 
 /* =========================================================
@@ -4808,112 +4715,8 @@ function consultaJSONP(
 ========================================================= */
 
 async function cargarInvitado() {
-
-  if (MODO_DEMO) {
-    recibirInvitado({ ...INVITADO_DEMO });
-    return;
-  }
-
-  if (!codigo) {
-
-    mostrarError(
-      "No encontramos un código de invitación en este enlace."
-    );
-
-    return;
-  }
-
-  try {
-
-    const callback1 =
-    "bodaInvitado_" +
-    Date.now() +
-    "_" +
-    Math.floor(Math.random() * 100000);
-
-    const url1 =
-    API_URL +
-    "?accion=invitado" +
-    "&codigo=" +
-    encodeURIComponent(codigo) +
-    "&callback=" +
-    encodeURIComponent(callback1) +
-    "&t=" +
-    Date.now();
-
-    const datos1 =
-    await consultaJSONP(
-      url1,
-      callback1,
-      8000
-    );
-
-    if (datos1 && datos1.ok) {
-
-      recibirInvitado(datos1);
-
-      return;
-    }
-
-  } catch (error) {
-
-    console.log(
-      "Intento 1 falló:",
-      error
-    );
-
-  }
-
-  try {
-
-    const callback2 =
-    "bodaInvitadoFallback_" +
-    Date.now() +
-    "_" +
-    Math.floor(Math.random() * 100000);
-
-    const url2 =
-    API_URL +
-    "?codigo=" +
-    encodeURIComponent(codigo) +
-    "&callback=" +
-    encodeURIComponent(callback2) +
-    "&t=" +
-    Date.now();
-
-    const datos2 =
-    await consultaJSONP(
-      url2,
-      callback2,
-      8000
-    );
-
-    if (datos2 && datos2.ok) {
-
-      recibirInvitado(datos2);
-
-      return;
-    }
-
-    mostrarError(
-      datos2 && datos2.mensaje
-      ? datos2.mensaje
-      : "Invitación no encontrada."
-    );
-
-  } catch (error) {
-
-    console.log(
-      "Intento 2 falló:",
-      error
-    );
-
-    mostrarError(
-      "No pudimos cargar tu invitación. Intenta recargar la página."
-    );
-
-  }
-
+  // Vista de prueba hasta configurar Supabase para invitados y RSVP.
+  recibirInvitado({ ...INVITADO_DEMO });
 }
 
 
@@ -5499,114 +5302,7 @@ rsvpConfirmar.addEventListener(
 );
 
 async function guardarRSVP() {
-
-  if (!respuestaRSVP) {
-
-    rsvpMensaje.textContent =
-    "Selecciona una respuesta.";
-
-    return;
-  }
-
-  let acompanantes = [];
-
-  if (respuestaRSVP === "SI") {
-
-    const campos =
-    document.querySelectorAll(
-      ".acompanante-campo"
-    );
-
-    let incompleto = false;
-
-    campos.forEach(
-      function (campo) {
-
-        const nombre =
-        campo.value.trim();
-
-        if (!nombre) {
-
-          incompleto = true;
-
-        } else {
-
-          acompanantes.push(nombre);
-
-        }
-
-      }
-    );
-
-    if (incompleto) {
-
-      rsvpMensaje.textContent =
-      "Escribe el nombre completo de cada acompañante.";
-
-      return;
-    }
-
-  }
-
-  if (MODO_DEMO) {
-    invitadoActual.estado = respuestaRSVP === "SI" ? "CONFIRMADO" : "NO ASISTE";
-    invitadoActual.asisten = respuestaRSVP === "SI" ? cantidadAsistentes : 0;
-    invitadoActual.acompanantes = acompanantes.join("|");
-    mostrarRespuestaGuardada(true);
-    return;
-  }
-
-  rsvpConfirmar.disabled = true;
-
-  rsvpMensaje.textContent =
-  "Guardando tu respuesta...";
-
-  const callback =
-  "bodaRSVP_" +
-  Date.now();
-
-  const url =
-  API_URL +
-  "?accion=confirmar" +
-  "&codigo=" +
-  encodeURIComponent(codigo) +
-  "&respuesta=" +
-  encodeURIComponent(respuestaRSVP) +
-  "&asisten=" +
-  encodeURIComponent(
-    respuestaRSVP === "SI"
-    ? cantidadAsistentes
-    : 0
-  ) +
-  "&acompanantes=" +
-  encodeURIComponent(
-    acompanantes.join("|")
-  ) +
-  "&callback=" +
-  callback +
-  "&t=" +
-  Date.now();
-
-  try {
-
-    const datos =
-    await consultaJSONP(
-      url,
-      callback,
-      10000
-    );
-
-    recibirConfirmacion(datos);
-
-  } catch (error) {
-
-    rsvpConfirmar.disabled = false;
-
-    rsvpMensaje.textContent =
-    "No pudimos guardar tu respuesta. Intenta nuevamente.";
-
-  }
-
+  rsvpMensaje.textContent = "Las confirmaciones estarán disponibles cuando conectemos Supabase. Tu respuesta aún no se ha guardado.";
 }
 
 function recibirConfirmacion(datos) {
@@ -5850,84 +5546,7 @@ notaRegaloTexto.addEventListener(
 );
 
 async function guardarNotaRegalo() {
-
-  const nota =
-  notaRegaloTexto.value.trim();
-
-  if (!nota) {
-
-    notaRegaloMensaje.textContent =
-    "Escribe unas palabras antes de enviar.";
-
-    notaRegaloTexto.focus();
-    return;
-  }
-
-  botonEnviarNotaRegalo.disabled = true;
-
-  notaRegaloMensaje.textContent =
-  "Guardando tu nota...";
-
-  const callback =
-  "bodaNota_" +
-  Date.now();
-
-  const url =
-  API_URL +
-  "?accion=nota_regalo" +
-  "&codigo=" +
-  encodeURIComponent(codigo) +
-  "&nota=" +
-  encodeURIComponent(nota) +
-  "&callback=" +
-  callback +
-  "&t=" +
-  Date.now();
-
-  try {
-
-    const datos =
-    await consultaJSONP(
-      url,
-      callback,
-      10000
-    );
-
-    if (!datos || !datos.ok) {
-
-      notaRegaloMensaje.textContent =
-      datos && datos.mensaje
-      ? datos.mensaje
-      : "No pudimos guardar tu nota. Inténtalo nuevamente.";
-
-      botonEnviarNotaRegalo.disabled = false;
-      return;
-    }
-
-    notaRegaloMensaje.textContent =
-    "Gracias por tus palabras 🤍 Tu nota ha sido guardada.";
-
-    estadoNotaRegalo.textContent =
-    "TU NOTA HA SIDO GUARDADA ♡";
-
-    botonAbrirNotaRegalo.textContent =
-    "EDITAR MI NOTA";
-
-    setTimeout(function () {
-      cerrarModalNotaRegalo();
-    }, 1600);
-
-  } catch (error) {
-
-    notaRegaloMensaje.textContent =
-    "No pudimos guardar tu nota. Revisa tu conexión e inténtalo nuevamente.";
-
-  } finally {
-
-    botonEnviarNotaRegalo.disabled = false;
-
-  }
-
+  notaRegaloMensaje.textContent = "Las notas estarán disponibles cuando conectemos Supabase. Tu mensaje aún no se ha guardado.";
 }
 
 botonEnviarNotaRegalo.addEventListener(
@@ -5937,56 +5556,55 @@ botonEnviarNotaRegalo.addEventListener(
 
 
 /* =========================================================
-   BANCOS · Tarjetas independientes sin pantalla de PIN
-   La API existente todavía exige PIN; se utiliza internamente.
+   BANCOS · Datos estáticos proporcionados por los novios.
+   Sin PIN, Apps Script ni solicitudes externas.
 ========================================================= */
 const modalBancos = document.getElementById("modalBancos");
 const modalBancoEstado = document.getElementById("modalBancoEstado");
 const datosBancosGrid = document.getElementById("datosBancosGrid");
-const PIN_BANCOS_INTERNO = "1411";
-let cacheBancos = null;
-let bancoActivo = "pichincha";
-const normalizarBanco = texto => String(texto || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-function bancoCoincide(banco, clave) {
-  const nombre = normalizarBanco(banco.banco);
-  return clave === "pichincha" ? nombre.includes("pichincha") : nombre.includes("guayaquil");
-}
+const CUENTAS_BODA = {
+  pichincha: {
+    banco: "Banco Pichincha",
+    titular: "González Almeida Carolina Pricila",
+    tipoCuenta: "Cuenta de ahorros",
+    cuenta: "7702688193",
+    cedula: "1726921131"
+  },
+  guayaquil: {
+    banco: "Banco Guayaquil",
+    titular: "Mendoza Pérez Darling Alexander",
+    tipoCuenta: "Cuenta de ahorros",
+    cuenta: "0044038638",
+    cedula: "1753215993"
+  }
+};
 function crearDato(etiqueta, valor, copiar) {
   const bloque = document.createElement("div"); bloque.className = "atelier-modal-dato";
   const label = document.createElement("div"); label.className = "dato-label"; label.textContent = etiqueta;
-  const texto = document.createElement("div"); texto.className = "dato-valor"; texto.textContent = valor || "No disponible";
+  const texto = document.createElement("div"); texto.className = "dato-valor"; texto.textContent = valor;
   bloque.append(label, texto);
-  if (copiar && valor) {
+  if (copiar) {
     const boton = document.createElement("button"); boton.type = "button";
     boton.className = "copiar-boton"; boton.textContent = "COPIAR " + etiqueta;
-    boton.addEventListener("click", () => copiarTexto(String(valor), boton));
+    boton.addEventListener("click", () => copiarTexto(valor, boton));
     bloque.appendChild(boton);
   }
   return bloque;
 }
-function mostrarBancoSeleccionado() {
-  const banco = (cacheBancos || []).find(b => bancoCoincide(b, bancoActivo));
-  datosBancosGrid.replaceChildren();
-  if (!banco) { modalBancoEstado.textContent = "No encontramos los datos de este banco. Inténtalo nuevamente más tarde."; return; }
-  modalBancoEstado.textContent = "Con cariño, Carolina & Alexander";
-  const nombre = document.createElement("h4"); nombre.className = "atelier-modal-banco-nombre"; nombre.textContent = banco.banco;
-  datosBancosGrid.append(nombre, crearDato("TITULAR",banco.titular), crearDato("TIPO DE CUENTA",banco.tipoCuenta), crearDato("NÚMERO DE CUENTA",banco.cuenta,true), crearDato("NÚMERO DE CÉDULA",banco.cedula,true));
-}
-async function abrirBanco(clave) {
-  bancoActivo = clave;
-  document.getElementById("tituloModalBanco").textContent = clave === "pichincha" ? "Banco Pichincha" : "Banco Guayaquil";
+function abrirBanco(clave) {
+  const banco = CUENTAS_BODA[clave];
+  if (!banco) return;
+  document.getElementById("tituloModalBanco").textContent = banco.banco;
   modalBancos.classList.add("activo");
-  modalBancoEstado.textContent = "Consultando datos de la cuenta…";
+  modalBancoEstado.textContent = "Con cariño, Carolina & Alexander";
   datosBancosGrid.replaceChildren();
-  if (cacheBancos) { mostrarBancoSeleccionado(); return; }
-  const callback = "bodaBanco_" + Date.now();
-  const url = API_URL + "?accion=bancos&codigo=" + encodeURIComponent(codigo) + "&pin=" + encodeURIComponent(PIN_BANCOS_INTERNO) + "&callback=" + callback + "&t=" + Date.now();
-  try {
-    const datos = await consultaJSONP(url, callback, 10000);
-    if (!datos || !datos.ok || !Array.isArray(datos.bancos)) throw new Error("Respuesta bancaria no válida");
-    cacheBancos = datos.bancos;
-    mostrarBancoSeleccionado();
-  } catch (error) { modalBancoEstado.textContent = "No pudimos consultar los datos bancarios. Revisa tu conexión e inténtalo nuevamente."; }
+  const nombre = document.createElement("h4");
+  nombre.className = "atelier-modal-banco-nombre"; nombre.textContent = banco.banco;
+  datosBancosGrid.append(nombre,
+    crearDato("TITULAR", banco.titular, false),
+    crearDato("TIPO DE CUENTA", banco.tipoCuenta, false),
+    crearDato("NÚMERO DE CUENTA", banco.cuenta, true),
+    crearDato("NÚMERO DE CÉDULA", banco.cedula, true));
 }
 document.querySelectorAll(".banco-preview[data-banco]").forEach(boton => boton.addEventListener("click", () => abrirBanco(boton.dataset.banco)));
 document.getElementById("cerrarModalBancos").addEventListener("click", () => modalBancos.classList.remove("activo"));
