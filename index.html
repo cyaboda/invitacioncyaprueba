@@ -1820,8 +1820,8 @@ select {
 }
 
 #datosBancarios {
-  display: none;
-  margin-top: 30px;
+  display: block;
+  margin-top: 18px;
 }
 
 .datos-bancos-grid {
@@ -3350,6 +3350,13 @@ select {
  .atelier-regalos-rama-der {right:-80px;bottom:-25px}
 }
 
+/* Corrección popup Regalos: el contenedor estaba oculto por CSS heredado */
+.atelier-modal-caja #datosBancarios { display:block; margin-top:12px; }
+.atelier-modal-caja .datos-bancos-grid { display:flex; flex-direction:column; gap:0; text-align:left; }
+.atelier-modal-caja .atelier-modal-dato { padding:12px 0; }
+.atelier-modal-caja .atelier-modal-dato .dato-label { font-size:10px; letter-spacing:.16em; color:#a97564; margin-bottom:6px; }
+.atelier-modal-caja .atelier-modal-dato .dato-valor { font-size:16px; color:#5a352c; }
+.atelier-modal-caja { max-height:calc(100dvh - 36px); overflow-y:auto; }
 </style>
 
 
@@ -5596,11 +5603,9 @@ function abrirBanco(clave) {
   if (!banco) return;
   document.getElementById("tituloModalBanco").textContent = banco.banco;
   modalBancos.classList.add("activo");
-  modalBancoEstado.textContent = "Con cariño, Carolina & Alexander";
+  modalBancoEstado.textContent = "";
   datosBancosGrid.replaceChildren();
-  const nombre = document.createElement("h4");
-  nombre.className = "atelier-modal-banco-nombre"; nombre.textContent = banco.banco;
-  datosBancosGrid.append(nombre,
+  datosBancosGrid.append(
     crearDato("TITULAR", banco.titular, false),
     crearDato("TIPO DE CUENTA", banco.tipoCuenta, false),
     crearDato("NÚMERO DE CUENTA", banco.cuenta, true),
