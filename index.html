@@ -3758,6 +3758,38 @@ select {
 }
 </style>
 
+
+<style id="atelier-lugar-encuadre-prueba-v12">
+/* ATELIER PRUEBA: encuadre completo de ambos rostros, sin recortes. */
+#eventoSeccion.evento-atelier-lugar-v11 .evento-visual {
+  position:relative;
+  isolation:isolate;
+  background:#39271f;
+}
+#eventoSeccion.evento-atelier-lugar-v11 .evento-visual::before {
+  content:"";
+  position:absolute; inset:-24px;
+  background:url('F1.jpeg') center center / cover no-repeat;
+  filter:blur(24px) brightness(.67);
+  transform:scale(1.06);
+  z-index:0;
+  pointer-events:none;
+}
+#eventoSeccion.evento-atelier-lugar-v11 .evento-visual-principal {
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:contain;
+  object-position:center center;
+  transform:none;
+  z-index:1;
+}
+#eventoSeccion.evento-atelier-lugar-v11 .evento-visual-meta {z-index:3;}
+@media (max-width:760px){
+  #eventoSeccion.evento-atelier-lugar-v11 .evento-visual-principal {
+    object-fit:contain; object-position:center center;
+  }
+}
+</style>
 </head>
 
 <body>
