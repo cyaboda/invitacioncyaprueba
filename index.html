@@ -3304,6 +3304,52 @@ select {
   .reservados { margin-top:20px; padding-top:16px; }
 }
 
+
+/* ATELIER 06 · Regalos: diseño editorial realizable en CSS */
+.regalos-seccion { isolation:isolate; background:#743a2d; }
+.regalos-contenido { max-width:1020px; }
+.regalos-numero {font: 12px Georgia,serif;letter-spacing:5px;color:#efd0bd;margin:0 0 7px}
+.regalos-icono {width:32px;height:32px;margin-bottom:8px;font-size:15px}
+.regalos-titulo {font-size:clamp(52px,6.4vw,82px);margin:7px 0 0}
+.regalos-linea {width:65px;margin:13px auto 14px}
+.regalos-texto {max-width:610px;font-size:clamp(16px,1.55vw,20px);line-height:1.45;font-style:normal;margin:0 auto 30px}
+.regalos-texto em {font-size:1.14em}
+.bancos-preview {max-width:940px;gap:30px}
+.banco-preview {font:inherit;min-height:145px;display:flex;align-items:center;text-align:left;gap:18px;padding:25px 28px;border-radius:16px;border:1px solid rgba(245,209,186,.42);background:rgba(255,255,255,.035);color:#fff6ef;cursor:pointer;transition:background .2s,transform .2s}
+.banco-preview:hover,.banco-preview:focus-visible {background:rgba(255,255,255,.085);transform:translateY(-2px)}
+.banco-icono {flex:none;width:57px;height:57px;margin:0;border:1px solid rgba(250,223,206,.48);border-radius:50%;font-size:27px;font-family:Georgia,serif;color:#f3d3bf}
+.banco-preview-info {display:flex;flex-direction:column;gap:7px;flex:1;min-width:0}
+.banco-preview-nombre {font:normal clamp(19px,2vw,27px) Georgia,serif;color:#fff8f1}
+.banco-preview-titular {font:9px/1.65 Arial,sans-serif;letter-spacing:1.8px;text-transform:uppercase;margin:0;color:#edc9b7}
+.banco-preview-flecha {display:flex;align-items:center;justify-content:center;flex:none;width:35px;height:35px;border:1px solid rgba(245,209,186,.5);border-radius:50%;font:25px Georgia,serif}
+.regalo-nota-bloque {margin-top:38px}
+.regalo-nota-pregunta {font-style:italic}
+.regalos-nota {margin-top:36px}
+.atelier-regalos-rama {position:absolute;z-index:0;pointer-events:none;width:clamp(145px,22vw,290px);opacity:.46}
+.atelier-regalos-rama img {display:block;width:100%;height:auto}
+.atelier-regalos-rama-izq {top:-12%;left:-8%;transform:rotate(165deg)}
+.atelier-regalos-rama-der {bottom:-19%;right:-7%;transform:rotate(12deg)}
+.atelier-modal-caja {max-width:510px;border-radius:18px;padding:38px 32px}
+.atelier-modal-eyebrow {font:9px Arial,sans-serif;letter-spacing:3px;color:#a96d58}
+.atelier-modal-banco-nombre {font:normal 25px Georgia,serif;margin:5px 0 16px}
+.atelier-modal-dato {padding:11px 0;border-top:1px solid #e3cec0}
+.atelier-modal-dato .dato-valor {overflow-wrap:anywhere}
+.atelier-modal-dato .copiar-boton {margin:9px auto 0}
+@media(max-width:650px){
+ .regalos-seccion {padding:45px 20px}
+ .regalos-texto {margin-bottom:22px}
+ .bancos-preview {gap:13px;max-width:420px}
+ .banco-preview {min-height:100px;padding:16px;gap:12px}
+ .banco-icono {width:45px;height:45px;font-size:22px}
+ .banco-preview-nombre {font-size:20px}
+ .banco-preview-titular {font-size:8px;letter-spacing:1px}
+ .regalo-nota-bloque {margin-top:25px}
+ .regalos-nota {margin-top:25px;line-height:1.7}
+ .atelier-regalos-rama {width:145px;opacity:.27}
+ .atelier-regalos-rama-izq {left:-80px;top:-15px}
+ .atelier-regalos-rama-der {right:-80px;bottom:-25px}
+}
+
 </style>
 
 
@@ -4179,78 +4225,33 @@ select {
 
 
 <section class="regalos-seccion scroll-section" id="regalosSeccion">
-
-  <div class="scroll-botanical botanica-izq">
-    <svg viewBox="0 0 260 540">
-      <path class="scroll-tallo" d="M20 540 C45 450 70 360 100 280 C135 190 165 110 225 10" />
-      <path class="scroll-rama" d="M70 360 C44 345 28 320 20 292" />
-      <path class="scroll-rama" d="M145 165 C170 150 190 125 200 98" />
-      <ellipse class="scroll-hoja" data-start=".22" cx="26" cy="286" rx="10" ry="23" />
-      <ellipse class="scroll-hoja" data-start=".55" cx="202" cy="92" rx="10" ry="22" />
-    </svg>
-  </div>
-
-  <div class="scroll-botanical botanica-der">
-    <svg viewBox="0 0 250 520">
-      <path class="scroll-tallo" d="M238 0 C215 80 195 155 165 235 C135 315 95 415 22 520" />
-      <path class="scroll-rama" d="M185 185 C210 167 225 145 230 115" />
-      <path class="scroll-rama" d="M92 405 C68 385 55 360 52 330" />
-      <ellipse class="scroll-hoja" data-start=".3" cx="228" cy="110" rx="10" ry="22" />
-      <ellipse class="scroll-hoja" data-start=".65" cx="55" cy="325" rx="10" ry="23" />
-    </svg>
-  </div>
-
+  <div class="atelier-regalos-rama atelier-regalos-rama-izq" aria-hidden="true"><img src="rama_izquierda.webp" alt="" loading="lazy"></div>
+  <div class="atelier-regalos-rama atelier-regalos-rama-der" aria-hidden="true"><img src="rama_derecha.webp" alt="" loading="lazy"></div>
   <div class="regalos-contenido">
-
     <div class="regalos-icono">♡</div>
+    <div class="regalos-numero">06</div>
     <div class="regalos-etiqueta">UN DETALLE PARA NOSOTROS</div>
     <h2 class="regalos-titulo">Regalos</h2>
-
-    <div class="regalos-texto">
-      Si deseas regalarnos algo más que tu hermosa presencia,
-      hemos preparado estas opciones para ti.
-    </div>
-
     <div class="regalos-linea"></div>
-
+    <div class="regalos-texto"><em>Tu presencia es el regalo más especial.</em><br>Si deseas tener un detalle adicional, te compartimos estas opciones con mucho cariño.</div>
     <div class="bancos-preview">
-
-      <div class="banco-preview">
-        <div class="banco-icono">◇</div>
-        <div class="banco-preview-nombre">Banco Pichincha</div>
-        <div class="banco-preview-titular">Carolina Pricila González Almeida</div>
-      </div>
-
-      <div class="banco-preview">
-        <div class="banco-icono">◇</div>
-        <div class="banco-preview-nombre">Banco Guayaquil</div>
-        <div class="banco-preview-titular">Darling Alexander Mendoza Pérez</div>
-      </div>
-
-    </div>
-
-    <button class="regalos-boton" id="abrirBancos" type="button">
-      VER DATOS PARA TRANSFERENCIA
-    </button>
-
-    <div class="regalo-nota-bloque">
-      <p class="regalo-nota-pregunta">
-        ¿Deseas dejarnos una nota sobre tu regalo?
-      </p>
-
-      <button class="regalo-nota-boton" id="abrirNotaRegalo" type="button">
-        DEJAR UNA NOTA
+      <button class="banco-preview" type="button" data-banco="pichincha" aria-label="Ver datos de Banco Pichincha">
+        <span class="banco-icono" aria-hidden="true">♧</span>
+        <span class="banco-preview-info"><span class="banco-preview-nombre">Banco Pichincha</span><span class="banco-preview-titular">Carolina Pricila González Almeida</span></span>
+        <span class="banco-preview-flecha" aria-hidden="true">›</span>
       </button>
-
+      <button class="banco-preview" type="button" data-banco="guayaquil" aria-label="Ver datos de Banco Guayaquil">
+        <span class="banco-icono" aria-hidden="true">♧</span>
+        <span class="banco-preview-info"><span class="banco-preview-nombre">Banco Guayaquil</span><span class="banco-preview-titular">Darling Alexander Mendoza Pérez</span></span>
+        <span class="banco-preview-flecha" aria-hidden="true">›</span>
+      </button>
+    </div>
+    <div class="regalo-nota-bloque"><p class="regalo-nota-pregunta">¿Deseas dejarnos una nota sobre tu regalo?</p>
+      <button class="regalo-nota-boton" id="abrirNotaRegalo" type="button">DEJAR UNA NOTA &nbsp; ›</button>
       <div class="regalo-nota-estado" id="estadoNotaRegalo"></div>
     </div>
-
-    <div class="regalos-nota">
-      GRACIAS POR ACOMPAÑARNOS EN ESTE NUEVO CAPÍTULO
-    </div>
-
+    <div class="regalos-nota">GRACIAS POR ACOMPAÑARNOS EN ESTE NUEVO CAPÍTULO</div>
   </div>
-
 </section>
 
 
@@ -4443,47 +4444,15 @@ select {
 </div>
 
 
-<div class="modal-bancos" id="modalBancos">
-
-  <div class="modal-caja">
-
-    <button class="modal-cerrar" id="cerrarModalBancos" type="button">×</button>
-
-    <h3 class="modal-titulo">Datos para transferencia</h3>
-
-    <div class="modal-texto">
-      Por seguridad, ingresa el código proporcionado
-      por los novios.
-    </div>
-
-    <div class="pin-contenedor" id="pinContenedor">
-
-      <input
-        type="password"
-        class="pin-input"
-        id="pinBancos"
-        inputmode="numeric"
-        maxlength="4"
-        autocomplete="off"
-        placeholder="••••"
-      >
-
-      <button class="pin-boton" id="verificarPin" type="button">
-        VER DATOS
-      </button>
-
-      <div class="pin-error" id="pinError"></div>
-
-    </div>
-
-    <div id="datosBancarios">
-      <div class="datos-bancos-grid" id="datosBancosGrid"></div>
-    </div>
-
+<div class="modal-bancos" id="modalBancos" role="dialog" aria-modal="true" aria-labelledby="tituloModalBanco">
+  <div class="modal-caja atelier-modal-caja">
+    <button class="modal-cerrar" id="cerrarModalBancos" type="button" aria-label="Cerrar">×</button>
+    <div class="atelier-modal-eyebrow">UN DETALLE PARA NOSOTROS</div>
+    <h3 class="modal-titulo" id="tituloModalBanco">Datos para transferencia</h3>
+    <p class="modal-texto" id="modalBancoEstado" aria-live="polite">Consultando datos de la cuenta…</p>
+    <div id="datosBancarios"><div class="datos-bancos-grid" id="datosBancosGrid"></div></div>
   </div>
-
 </div>
-
 
 <script>
 
@@ -5968,220 +5937,61 @@ botonEnviarNotaRegalo.addEventListener(
 
 
 /* =========================================================
-   BANCOS
+   BANCOS · Tarjetas independientes sin pantalla de PIN
+   La API existente todavía exige PIN; se utiliza internamente.
 ========================================================= */
-
-const modalBancos =
-document.getElementById("modalBancos");
-
-const pinInput =
-document.getElementById("pinBancos");
-
-const pinError =
-document.getElementById("pinError");
-
-document
-.getElementById("abrirBancos")
-.addEventListener(
-  "click",
-  function () {
-
-    modalBancos.classList.add("activo");
-
-    pinInput.value = "";
-    pinError.textContent = "";
-
-    document
-    .getElementById("datosBancarios")
-    .style.display =
-    "none";
-
-    document
-    .getElementById("pinContenedor")
-    .style.display =
-    "block";
-
+const modalBancos = document.getElementById("modalBancos");
+const modalBancoEstado = document.getElementById("modalBancoEstado");
+const datosBancosGrid = document.getElementById("datosBancosGrid");
+const PIN_BANCOS_INTERNO = "1411";
+let cacheBancos = null;
+let bancoActivo = "pichincha";
+const normalizarBanco = texto => String(texto || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+function bancoCoincide(banco, clave) {
+  const nombre = normalizarBanco(banco.banco);
+  return clave === "pichincha" ? nombre.includes("pichincha") : nombre.includes("guayaquil");
+}
+function crearDato(etiqueta, valor, copiar) {
+  const bloque = document.createElement("div"); bloque.className = "atelier-modal-dato";
+  const label = document.createElement("div"); label.className = "dato-label"; label.textContent = etiqueta;
+  const texto = document.createElement("div"); texto.className = "dato-valor"; texto.textContent = valor || "No disponible";
+  bloque.append(label, texto);
+  if (copiar && valor) {
+    const boton = document.createElement("button"); boton.type = "button";
+    boton.className = "copiar-boton"; boton.textContent = "COPIAR " + etiqueta;
+    boton.addEventListener("click", () => copiarTexto(String(valor), boton));
+    bloque.appendChild(boton);
   }
-);
-
-document
-.getElementById("cerrarModalBancos")
-.addEventListener(
-  "click",
-  function () {
-
-    modalBancos.classList.remove("activo");
-
-  }
-);
-
-async function verificarPinBancos() {
-
-  const pin =
-  pinInput.value.trim();
-
-  if (pin.length !== 4) {
-
-    pinError.textContent =
-    "Ingresa el código de 4 dígitos.";
-
-    return;
-  }
-
-  pinError.textContent =
-  "Verificando...";
-
-  const callback =
-  "bodaBanco_" +
-  Date.now();
-
-  const url =
-  API_URL +
-  "?accion=bancos" +
-  "&codigo=" +
-  encodeURIComponent(codigo) +
-  "&pin=" +
-  encodeURIComponent(pin) +
-  "&callback=" +
-  callback +
-  "&t=" +
-  Date.now();
-
+  return bloque;
+}
+function mostrarBancoSeleccionado() {
+  const banco = (cacheBancos || []).find(b => bancoCoincide(b, bancoActivo));
+  datosBancosGrid.replaceChildren();
+  if (!banco) { modalBancoEstado.textContent = "No encontramos los datos de este banco. Inténtalo nuevamente más tarde."; return; }
+  modalBancoEstado.textContent = "Con cariño, Carolina & Alexander";
+  const nombre = document.createElement("h4"); nombre.className = "atelier-modal-banco-nombre"; nombre.textContent = banco.banco;
+  datosBancosGrid.append(nombre, crearDato("TITULAR",banco.titular), crearDato("TIPO DE CUENTA",banco.tipoCuenta), crearDato("NÚMERO DE CUENTA",banco.cuenta,true), crearDato("NÚMERO DE CÉDULA",banco.cedula,true));
+}
+async function abrirBanco(clave) {
+  bancoActivo = clave;
+  document.getElementById("tituloModalBanco").textContent = clave === "pichincha" ? "Banco Pichincha" : "Banco Guayaquil";
+  modalBancos.classList.add("activo");
+  modalBancoEstado.textContent = "Consultando datos de la cuenta…";
+  datosBancosGrid.replaceChildren();
+  if (cacheBancos) { mostrarBancoSeleccionado(); return; }
+  const callback = "bodaBanco_" + Date.now();
+  const url = API_URL + "?accion=bancos&codigo=" + encodeURIComponent(codigo) + "&pin=" + encodeURIComponent(PIN_BANCOS_INTERNO) + "&callback=" + callback + "&t=" + Date.now();
   try {
-
-    const datos =
-    await consultaJSONP(
-      url,
-      callback,
-      10000
-    );
-
-    if (!datos || !datos.ok) {
-
-      pinError.textContent =
-      "Código incorrecto.";
-
-      return;
-    }
-
-    pinError.textContent = "";
-
-    mostrarDatosBancarios(
-      datos.bancos
-    );
-
-  } catch (error) {
-
-    pinError.textContent =
-    "No pudimos consultar los datos.";
-
-  }
-
+    const datos = await consultaJSONP(url, callback, 10000);
+    if (!datos || !datos.ok || !Array.isArray(datos.bancos)) throw new Error("Respuesta bancaria no válida");
+    cacheBancos = datos.bancos;
+    mostrarBancoSeleccionado();
+  } catch (error) { modalBancoEstado.textContent = "No pudimos consultar los datos bancarios. Revisa tu conexión e inténtalo nuevamente."; }
 }
-
-document
-.getElementById("verificarPin")
-.addEventListener(
-  "click",
-  verificarPinBancos
-);
-
-pinInput.addEventListener(
-  "keydown",
-  function (event) {
-
-    if (event.key === "Enter") {
-      verificarPinBancos();
-    }
-
-  }
-);
-
-function mostrarDatosBancarios(bancos) {
-
-  const grid =
-  document.getElementById("datosBancosGrid");
-
-  grid.innerHTML = "";
-
-  bancos.forEach(
-    function (banco) {
-
-      const tarjeta =
-      document.createElement("div");
-
-      tarjeta.className =
-      "banco-datos";
-
-      tarjeta.innerHTML =
-      `
-        <div class="banco-datos-titulo">
-          ${banco.banco}
-        </div>
-
-        <div class="dato-label">
-          TITULAR
-        </div>
-
-        <div class="dato-valor">
-          ${banco.titular}
-        </div>
-
-        <div class="dato-label">
-          TIPO DE CUENTA
-        </div>
-
-        <div class="dato-valor">
-          ${banco.tipoCuenta}
-        </div>
-
-        <div class="dato-label">
-          NÚMERO DE CUENTA
-        </div>
-
-        <div class="dato-valor dato-numero">
-          ${banco.cuenta}
-        </div>
-
-        <button
-          class="copiar-boton"
-          onclick="copiarTexto('${banco.cuenta}',this)"
-        >
-          COPIAR CUENTA
-        </button>
-
-        <div class="dato-label">
-          NÚMERO DE CÉDULA
-        </div>
-
-        <div class="dato-valor dato-numero">
-          ${banco.cedula}
-        </div>
-
-        <button
-          class="copiar-boton"
-          onclick="copiarTexto('${banco.cedula}',this)"
-        >
-          COPIAR CÉDULA
-        </button>
-      `;
-
-      grid.appendChild(tarjeta);
-
-    }
-  );
-
-  document
-  .getElementById("pinContenedor")
-  .style.display =
-  "none";
-
-  document
-  .getElementById("datosBancarios")
-  .style.display =
-  "block";
-
-}
+document.querySelectorAll(".banco-preview[data-banco]").forEach(boton => boton.addEventListener("click", () => abrirBanco(boton.dataset.banco)));
+document.getElementById("cerrarModalBancos").addEventListener("click", () => modalBancos.classList.remove("activo"));
+modalBancos.addEventListener("click", e => { if (e.target === modalBancos) modalBancos.classList.remove("activo"); });
+document.addEventListener("keydown", e => { if (e.key === "Escape") modalBancos.classList.remove("activo"); });
 
 function copiarTexto(texto, boton) {
 
