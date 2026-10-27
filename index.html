@@ -3270,6 +3270,40 @@ select {
   }
 }
 
+
+/* ATELIER: Dress Code con ilustraciones WebP, sin alterar las otras secciones */
+.dress-seccion { isolation:isolate; }
+.dress-contenido { z-index: 3; }
+.dress-rama {
+  position:absolute; z-index:1; pointer-events:none; user-select:none;
+  width:clamp(145px, 23vw, 330px); height:auto; object-fit:contain;
+  opacity:.82;
+}
+.dress-rama-izquierda { left:-4%; bottom:-8%; }
+.dress-rama-derecha { right:-4%; top:-8%; }
+.dress-opciones { position:relative; z-index:2; }
+.dress-icono {
+  width:clamp(110px, 12vw, 160px);
+  height:clamp(140px, 16vw, 200px);
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom:12px;
+}
+.dress-icono img { display:block; width:100%; height:100%; object-fit:contain; }
+@media (max-width: 650px) {
+  .dress-seccion { padding:40px 20px 46px; }
+  .dress-rama { width:clamp(115px, 32vw, 190px); opacity:.48; }
+  .dress-rama-izquierda { left:-12%; bottom:-3%; }
+  .dress-rama-derecha { right:-13%; top:-2%; }
+  .dress-opciones { gap:16px; }
+  .dress-item:first-child::after { right:-8px; }
+  .dress-icono { width:min(31vw, 135px); height:min(37vw, 160px); }
+}
+@media (max-height: 740px) and (max-width: 650px) {
+  .dress-seccion { padding-top:24px; padding-bottom:24px; }
+  .dress-linea { margin:12px auto 18px; }
+  .reservados { margin-top:20px; padding-top:16px; }
+}
+
 </style>
 
 
@@ -4097,25 +4131,8 @@ select {
 
 <section class="dress-seccion scroll-section" id="dressSeccion">
 
-  <div class="scroll-botanical botanica-izq">
-    <svg viewBox="0 0 260 540">
-      <path class="scroll-tallo" d="M20 540 C45 450 65 370 90 290 C120 205 150 120 220 20" />
-      <path class="scroll-rama" d="M72 355 C45 338 30 312 24 285" />
-      <path class="scroll-rama" d="M125 195 C150 180 170 155 180 125" />
-      <ellipse class="scroll-hoja" data-start=".23" cx="28" cy="278" rx="10" ry="23" />
-      <ellipse class="scroll-hoja" data-start=".52" cx="182" cy="118" rx="10" ry="22" />
-    </svg>
-  </div>
-
-  <div class="scroll-botanical botanica-der">
-    <svg viewBox="0 0 250 520">
-      <path class="scroll-tallo" d="M238 0 C220 80 200 155 170 235 C140 315 100 410 22 520" />
-      <path class="scroll-rama" d="M190 175 C215 155 225 132 230 105" />
-      <path class="scroll-rama" d="M95 395 C72 375 60 352 55 325" />
-      <ellipse class="scroll-hoja" data-start=".3" cx="225" cy="105" rx="10" ry="22" />
-      <ellipse class="scroll-hoja" data-start=".62" cx="58" cy="320" rx="10" ry="23" />
-    </svg>
-  </div>
+  <img class="dress-rama dress-rama-izquierda" src="rama_izquierda.webp" alt="" aria-hidden="true" loading="lazy">
+  <img class="dress-rama dress-rama-derecha" src="rama_derecha.webp" alt="" aria-hidden="true" loading="lazy">
 
   <div class="dress-contenido">
 
@@ -4127,31 +4144,13 @@ select {
     <div class="dress-opciones">
 
       <div class="dress-item">
-        <div class="dress-icono">
-          <svg viewBox="0 0 120 150">
-            <g fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M42 15 L60 30 L78 15" />
-              <path d="M42 15 L25 31 L15 135" />
-              <path d="M78 15 L95 31 L105 135" />
-              <path d="M15 135 L105 135" />
-            </g>
-          </svg>
-        </div>
+        <div class="dress-icono"><img src="terno.webp" alt="Ilustración de traje formal para caballeros" loading="lazy"></div>
         <div class="dress-genero">CABALLEROS</div>
         <div class="dress-descripcion">Traje formal</div>
       </div>
 
       <div class="dress-item">
-        <div class="dress-icono">
-          <svg viewBox="0 0 120 150">
-            <g fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M46 12 C47 25 50 35 60 40 C70 35 73 25 74 12" />
-              <path d="M43 60 C35 83 25 110 15 137" />
-              <path d="M77 60 C85 83 95 110 105 137" />
-              <path d="M15 137 C40 143 80 143 105 137" />
-            </g>
-          </svg>
-        </div>
+        <div class="dress-icono"><img src="vestido.webp" alt="Ilustración de vestido elegante para damas" loading="lazy"></div>
         <div class="dress-genero">DAMAS</div>
         <div class="dress-descripcion">Vestido largo o midi elegante</div>
       </div>
