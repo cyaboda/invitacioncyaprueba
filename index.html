@@ -1820,8 +1820,8 @@ select {
 }
 
 #datosBancarios {
-  display: block;
-  margin-top: 18px;
+  display: none;
+  margin-top: 30px;
 }
 
 .datos-bancos-grid {
@@ -3270,158 +3270,6 @@ select {
   }
 }
 
-
-/* ATELIER: Dress Code con ilustraciones WebP, sin alterar las otras secciones */
-.dress-seccion { isolation:isolate; }
-.dress-contenido { z-index: 3; }
-.dress-rama {
-  position:absolute; z-index:1; pointer-events:none; user-select:none;
-  width:clamp(145px, 23vw, 330px); height:auto; object-fit:contain;
-  opacity:.82;
-}
-.dress-rama-izquierda { left:-4%; bottom:-8%; }
-.dress-rama-derecha { right:-4%; top:-8%; }
-.dress-opciones { position:relative; z-index:2; }
-.dress-icono {
-  width:clamp(110px, 12vw, 160px);
-  height:clamp(140px, 16vw, 200px);
-  display:flex; align-items:center; justify-content:center;
-  margin-bottom:12px;
-}
-.dress-icono img { display:block; width:100%; height:100%; object-fit:contain; }
-@media (max-width: 650px) {
-  .dress-seccion { padding:40px 20px 46px; }
-  .dress-rama { width:clamp(115px, 32vw, 190px); opacity:.48; }
-  .dress-rama-izquierda { left:-12%; bottom:-3%; }
-  .dress-rama-derecha { right:-13%; top:-2%; }
-  .dress-opciones { gap:16px; }
-  .dress-item:first-child::after { right:-8px; }
-  .dress-icono { width:min(31vw, 135px); height:min(37vw, 160px); }
-}
-@media (max-height: 740px) and (max-width: 650px) {
-  .dress-seccion { padding-top:24px; padding-bottom:24px; }
-  .dress-linea { margin:12px auto 18px; }
-  .reservados { margin-top:20px; padding-top:16px; }
-}
-
-
-/* ATELIER 06 · Regalos: diseño editorial realizable en CSS */
-.regalos-seccion { isolation:isolate; background:#743a2d; }
-.regalos-contenido { max-width:1020px; }
-.regalos-numero {font: 12px Georgia,serif;letter-spacing:5px;color:#efd0bd;margin:0 0 7px}
-.regalos-icono {width:32px;height:32px;margin-bottom:8px;font-size:15px}
-.regalos-titulo {font-size:clamp(52px,6.4vw,82px);margin:7px 0 0}
-.regalos-linea {width:65px;margin:13px auto 14px}
-.regalos-texto {max-width:610px;font-size:clamp(16px,1.55vw,20px);line-height:1.45;font-style:normal;margin:0 auto 30px}
-.regalos-texto em {font-size:1.14em}
-.bancos-preview {max-width:940px;gap:30px}
-.banco-preview {font:inherit;min-height:145px;display:flex;align-items:center;text-align:left;gap:18px;padding:25px 28px;border-radius:16px;border:1px solid rgba(245,209,186,.42);background:rgba(255,255,255,.035);color:#fff6ef;cursor:pointer;transition:background .2s,transform .2s}
-.banco-preview:hover,.banco-preview:focus-visible {background:rgba(255,255,255,.085);transform:translateY(-2px)}
-.banco-icono {flex:none;width:57px;height:57px;margin:0;border:1px solid rgba(250,223,206,.48);border-radius:50%;font-size:27px;font-family:Georgia,serif;color:#f3d3bf}
-.banco-preview-info {display:flex;flex-direction:column;gap:7px;flex:1;min-width:0}
-.banco-preview-nombre {font:normal clamp(19px,2vw,27px) Georgia,serif;color:#fff8f1}
-.banco-preview-titular {font:9px/1.65 Arial,sans-serif;letter-spacing:1.8px;text-transform:uppercase;margin:0;color:#edc9b7}
-.banco-preview-flecha {display:flex;align-items:center;justify-content:center;flex:none;width:35px;height:35px;border:1px solid rgba(245,209,186,.5);border-radius:50%;font:25px Georgia,serif}
-.regalo-nota-bloque {margin-top:38px}
-.regalo-nota-pregunta {font-style:italic}
-.regalos-nota {margin-top:36px}
-.atelier-regalos-rama {position:absolute;z-index:0;pointer-events:none;width:clamp(145px,22vw,290px);opacity:.46}
-.atelier-regalos-rama img {display:block;width:100%;height:auto}
-.atelier-regalos-rama-izq {top:-12%;left:-8%;transform:rotate(165deg)}
-.atelier-regalos-rama-der {bottom:-19%;right:-7%;transform:rotate(12deg)}
-.atelier-modal-caja {max-width:510px;border-radius:18px;padding:38px 32px}
-.atelier-modal-eyebrow {font:9px Arial,sans-serif;letter-spacing:3px;color:#a96d58}
-.atelier-modal-banco-nombre {font:normal 25px Georgia,serif;margin:5px 0 16px}
-.atelier-modal-dato {padding:11px 0;border-top:1px solid #e3cec0}
-.atelier-modal-dato .dato-valor {overflow-wrap:anywhere}
-.atelier-modal-dato .copiar-boton {margin:9px auto 0}
-@media(max-width:650px){
- .regalos-seccion {padding:45px 20px}
- .regalos-texto {margin-bottom:22px}
- .bancos-preview {gap:13px;max-width:420px}
- .banco-preview {min-height:100px;padding:16px;gap:12px}
- .banco-icono {width:45px;height:45px;font-size:22px}
- .banco-preview-nombre {font-size:20px}
- .banco-preview-titular {font-size:8px;letter-spacing:1px}
- .regalo-nota-bloque {margin-top:25px}
- .regalos-nota {margin-top:25px;line-height:1.7}
- .atelier-regalos-rama {width:145px;opacity:.27}
- .atelier-regalos-rama-izq {left:-80px;top:-15px}
- .atelier-regalos-rama-der {right:-80px;bottom:-25px}
-}
-
-/* Corrección popup Regalos: el contenedor estaba oculto por CSS heredado */
-.atelier-modal-caja #datosBancarios { display:block; margin-top:12px; }
-.atelier-modal-caja .datos-bancos-grid { display:flex; flex-direction:column; gap:0; text-align:left; }
-.atelier-modal-caja .atelier-modal-dato { padding:12px 0; }
-.atelier-modal-caja .atelier-modal-dato .dato-label { font-size:10px; letter-spacing:.16em; color:#a97564; margin-bottom:6px; }
-.atelier-modal-caja .atelier-modal-dato .dato-valor { font-size:16px; color:#5a352c; }
-.atelier-modal-caja { max-height:calc(100dvh - 36px); overflow-y:auto; }
-
-/* ATELIER 07 — RSVP editorial aprobado; sin alterar la lógica existente */
-.rsvp-seccion {
-  background: linear-gradient(135deg,#612c25 0%,#57231e 52%,#491b18 100%);
-  padding: clamp(42px,6vh,70px) 24px;
-}
-.rsvp-seccion .scroll-botanical {color:rgba(230,185,155,.27)}
-.rsvp-contenido {max-width:1040px}
-.rsvp-icono {
-  display:flex;align-items:center;justify-content:center;
-  width:58px;height:58px;margin:0 auto 18px;
-  border:1px solid rgba(255,226,207,.43);border-radius:50%;
-  font-family:Georgia,serif;font-size:28px;color:#ffe5d4;
-}
-.rsvp-etiqueta {letter-spacing:5px;font-size:10px;color:#e4b5a0}
-.rsvp-titulo {
-  font-size:clamp(42px,6.7vw,88px);
-  letter-spacing:-.035em;line-height:1.12;margin:18px 0 0;
-}
-.rsvp-subtitulo {font-size:clamp(17px,2.1vw,25px);margin-top:17px}
-.rsvp-linea {width:112px;margin:22px auto 30px;background:rgba(255,227,208,.44)}
-.rsvp-panel,.rsvp-resultado {
-  max-width:920px;border-radius:28px;
-  border:1px solid rgba(255,227,208,.58);
-  background:rgba(255,255,255,.018);
-  padding:32px clamp(18px,5vw,58px);
-  box-shadow:none;
-}
-.rsvp-invitado-label {font-size:10px;letter-spacing:4px;color:#e9bca9}
-.rsvp-invitado {font-size:clamp(31px,4vw,49px);margin-top:12px}
-.rsvp-cupos {font-size:14px;margin-top:9px;color:#e9c9bb}
-.rsvp-ornamento {display:flex;align-items:center;justify-content:center;gap:20px;margin-top:22px;color:#e8bca8;font-size:25px}
-.rsvp-ornamento span {height:1px;width:min(17%,120px);background:rgba(255,225,208,.33)}
-.rsvp-pregunta {margin-top:9px;font-size:clamp(20px,2.2vw,26px)}
-.rsvp-opciones {gap:20px;margin-top:24px}
-.rsvp-opcion {
-  min-width:0;width:min(50%,375px);min-height:64px;
-  display:flex;align-items:center;justify-content:center;gap:15px;
-  border:1px solid rgba(255,224,207,.62);
-  background:transparent;color:#fff3eb;
-  font-size:11px;letter-spacing:2.7px;font-weight:600;
-  transition:background .2s ease,color .2s ease,transform .2s ease;
-}
-.rsvp-opcion:hover {background:rgba(255,235,221,.12);transform:translateY(-2px)}
-.rsvp-opcion.seleccionado {background:#f9e7d7;color:#55231e;border-color:#f9e7d7}
-.rsvp-boton-icono {display:grid;place-items:center;flex:0 0 30px;height:30px;border:1px solid currentColor;border-radius:50%;font-size:18px;font-weight:400}
-.rsvp-cierre {display:flex;align-items:center;flex-direction:column;gap:10px;margin-top:31px;color:#e5bba7;font:10px Arial,sans-serif;letter-spacing:4px}
-.rsvp-cierre-rama {font:29px Georgia,serif;line-height:1}
-.rsvp-confirmar {padding:15px 32px;font-weight:600}
-@media(max-width:700px){
- .rsvp-seccion {padding:42px 17px 55px}
- .rsvp-icono {width:48px;height:48px;margin-bottom:13px}
- .rsvp-etiqueta {font-size:8px;letter-spacing:3px}
- .rsvp-titulo {font-size:clamp(36px,9vw,52px);line-height:1.13}
- .rsvp-subtitulo {font-size:17px}
- .rsvp-linea {margin:18px auto 22px}
- .rsvp-panel,.rsvp-resultado {padding:26px 17px;border-radius:22px}
- .rsvp-invitado {font-size:clamp(27px,8vw,38px)}
- .rsvp-cupos {font-size:12px}
- .rsvp-opciones {flex-direction:column;gap:12px}
- .rsvp-opcion {width:100%;min-height:54px;font-size:10px}
- .rsvp-cierre {font-size:8px;letter-spacing:2px;line-height:1.8}
-}
-@media(prefers-reduced-motion:reduce){.rsvp-opcion{transition:none}.rsvp-opcion:hover{transform:none}}
-
 </style>
 
 
@@ -3910,104 +3758,6 @@ select {
 }
 </style>
 
-
-<style id="atelier-lugar-encuadre-prueba-v12">
-/* ATELIER PRUEBA: encuadre completo de ambos rostros, sin recortes. */
-#eventoSeccion.evento-atelier-lugar-v11 .evento-visual {
-  position:relative;
-  isolation:isolate;
-  background:#39271f;
-}
-#eventoSeccion.evento-atelier-lugar-v11 .evento-visual::before {
-  content:"";
-  position:absolute; inset:-24px;
-  background:url('F1.jpeg') center center / cover no-repeat;
-  filter:blur(24px) brightness(.67);
-  transform:scale(1.06);
-  z-index:0;
-  pointer-events:none;
-}
-#eventoSeccion.evento-atelier-lugar-v11 .evento-visual-principal {
-  position:absolute; inset:0;
-  width:100%; height:100%;
-  object-fit:contain;
-  object-position:center center;
-  transform:none;
-  z-index:1;
-}
-#eventoSeccion.evento-atelier-lugar-v11 .evento-visual-meta {z-index:3;}
-@media (max-width:760px){
-  #eventoSeccion.evento-atelier-lugar-v11 .evento-visual-principal {
-    object-fit:contain; object-position:center center;
-  }
-}
-</style>
-<style id="atelier-lugar-editorial-v13">
-/* PRUEBA ATELIER · Foto vertical al borde izquierdo y panel contiguo. */
-@media (min-width:761px){
-  #eventoSeccion.evento-atelier-lugar-v11{
-    grid-template-columns:minmax(260px,28%) minmax(0,72%);
-  }
-  #eventoSeccion.evento-atelier-lugar-v11 .evento-visual{
-    background:#39271f;
-  }
-  #eventoSeccion.evento-atelier-lugar-v11 .evento-visual::before{
-    display:none !important;
-  }
-  #eventoSeccion.evento-atelier-lugar-v11 .evento-visual-principal{
-    inset:0; width:100%; height:100%;
-    object-fit:cover; object-position:center center;
-  }
-  #eventoSeccion.evento-atelier-lugar-v11 .evento-editorial{
-    min-width:0;
-  }
-  #eventoSeccion.evento-atelier-lugar-v11 .evento-editorial-inner{
-    min-height:100svh;
-    grid-template-columns:minmax(0,1.3fr) minmax(180px,.75fr);
-    gap:clamp(28px,3.5vw,64px);
-    padding:clamp(38px,5vh,65px) clamp(32px,4vw,76px);
-    align-items:center;
-  }
-  #eventoSeccion.evento-atelier-lugar-v11 .evento-info{
-    display:flex; flex-direction:column; align-items:flex-start;
-  }
-  #eventoSeccion.evento-atelier-lugar-v11 .evento-capitulo{
-    margin-bottom:clamp(28px,5vh,55px);
-  }
-  #eventoSeccion.evento-atelier-lugar-v11 .evento-titulo{
-    font-size:clamp(38px,3.4vw,62px);
-  }
-  #eventoSeccion.evento-atelier-lugar-v11 .evento-hora{
-    font-size:clamp(54px,5vw,78px);
-  }
-  #eventoSeccion.evento-atelier-lugar-v11 .evento-jardin{
-    width:100%; max-width:300px; justify-self:center;
-  }
-  #eventoSeccion.evento-atelier-lugar-v11 .evento-jardin img{
-    max-height:42svh;
-  }
-}
-@media (min-width:761px) and (max-width:1100px){
-  #eventoSeccion.evento-atelier-lugar-v11{
-    grid-template-columns:minmax(225px,30%) minmax(0,70%);
-  }
-  #eventoSeccion.evento-atelier-lugar-v11 .evento-editorial-inner{
-    grid-template-columns:minmax(0,1fr) minmax(130px,.6fr);
-    gap:20px; padding:32px 28px;
-  }
-  #eventoSeccion.evento-atelier-lugar-v11 .evento-titulo{
-    font-size:clamp(34px,3.6vw,48px);
-  }
-}
-@media (max-width:760px){
-  #eventoSeccion.evento-atelier-lugar-v11 .evento-visual::before{
-    display:none !important;
-  }
-  #eventoSeccion.evento-atelier-lugar-v11 .evento-visual-principal{
-    object-fit:cover; object-position:center 30%;
-  }
-}
-</style>
 </head>
 
 <body>
@@ -4214,7 +3964,7 @@ select {
         <div class="evento-hora-fila">
           <span class="evento-reloj" aria-hidden="true">◷</span>
           <div>
-            <div class="evento-hora">16:30</div>
+            <div class="evento-hora">11:00 AM</div>
             <div class="evento-tipo">Ceremonia &amp; Recepción</div>
           </div>
         </div>
@@ -4249,8 +3999,25 @@ select {
 
 <section class="dress-seccion scroll-section" id="dressSeccion">
 
-  <img class="dress-rama dress-rama-izquierda" src="rama_izquierda.webp" decoding="async" alt="" aria-hidden="true" loading="eager">
-  <img class="dress-rama dress-rama-derecha" src="rama_derecha.webp" decoding="async" alt="" aria-hidden="true" loading="eager">
+  <div class="scroll-botanical botanica-izq">
+    <svg viewBox="0 0 260 540">
+      <path class="scroll-tallo" d="M20 540 C45 450 65 370 90 290 C120 205 150 120 220 20" />
+      <path class="scroll-rama" d="M72 355 C45 338 30 312 24 285" />
+      <path class="scroll-rama" d="M125 195 C150 180 170 155 180 125" />
+      <ellipse class="scroll-hoja" data-start=".23" cx="28" cy="278" rx="10" ry="23" />
+      <ellipse class="scroll-hoja" data-start=".52" cx="182" cy="118" rx="10" ry="22" />
+    </svg>
+  </div>
+
+  <div class="scroll-botanical botanica-der">
+    <svg viewBox="0 0 250 520">
+      <path class="scroll-tallo" d="M238 0 C220 80 200 155 170 235 C140 315 100 410 22 520" />
+      <path class="scroll-rama" d="M190 175 C215 155 225 132 230 105" />
+      <path class="scroll-rama" d="M95 395 C72 375 60 352 55 325" />
+      <ellipse class="scroll-hoja" data-start=".3" cx="225" cy="105" rx="10" ry="22" />
+      <ellipse class="scroll-hoja" data-start=".62" cx="58" cy="320" rx="10" ry="23" />
+    </svg>
+  </div>
 
   <div class="dress-contenido">
 
@@ -4262,13 +4029,31 @@ select {
     <div class="dress-opciones">
 
       <div class="dress-item">
-        <div class="dress-icono"><img src="terno.webp" decoding="async" alt="Ilustración de traje formal para caballeros" loading="eager"></div>
+        <div class="dress-icono">
+          <svg viewBox="0 0 120 150">
+            <g fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M42 15 L60 30 L78 15" />
+              <path d="M42 15 L25 31 L15 135" />
+              <path d="M78 15 L95 31 L105 135" />
+              <path d="M15 135 L105 135" />
+            </g>
+          </svg>
+        </div>
         <div class="dress-genero">CABALLEROS</div>
         <div class="dress-descripcion">Traje formal</div>
       </div>
 
       <div class="dress-item">
-        <div class="dress-icono"><img src="vestido.webp" decoding="async" alt="Ilustración de vestido elegante para damas" loading="eager"></div>
+        <div class="dress-icono">
+          <svg viewBox="0 0 120 150">
+            <g fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M46 12 C47 25 50 35 60 40 C70 35 73 25 74 12" />
+              <path d="M43 60 C35 83 25 110 15 137" />
+              <path d="M77 60 C85 83 95 110 105 137" />
+              <path d="M15 137 C40 143 80 143 105 137" />
+            </g>
+          </svg>
+        </div>
         <div class="dress-genero">DAMAS</div>
         <div class="dress-descripcion">Vestido largo o midi elegante</div>
       </div>
@@ -4297,33 +4082,78 @@ select {
 
 
 <section class="regalos-seccion scroll-section" id="regalosSeccion">
-  <div class="atelier-regalos-rama atelier-regalos-rama-izq" aria-hidden="true"><img src="rama_izquierda.webp" alt="" loading="lazy"></div>
-  <div class="atelier-regalos-rama atelier-regalos-rama-der" aria-hidden="true"><img src="rama_derecha.webp" alt="" loading="lazy"></div>
+
+  <div class="scroll-botanical botanica-izq">
+    <svg viewBox="0 0 260 540">
+      <path class="scroll-tallo" d="M20 540 C45 450 70 360 100 280 C135 190 165 110 225 10" />
+      <path class="scroll-rama" d="M70 360 C44 345 28 320 20 292" />
+      <path class="scroll-rama" d="M145 165 C170 150 190 125 200 98" />
+      <ellipse class="scroll-hoja" data-start=".22" cx="26" cy="286" rx="10" ry="23" />
+      <ellipse class="scroll-hoja" data-start=".55" cx="202" cy="92" rx="10" ry="22" />
+    </svg>
+  </div>
+
+  <div class="scroll-botanical botanica-der">
+    <svg viewBox="0 0 250 520">
+      <path class="scroll-tallo" d="M238 0 C215 80 195 155 165 235 C135 315 95 415 22 520" />
+      <path class="scroll-rama" d="M185 185 C210 167 225 145 230 115" />
+      <path class="scroll-rama" d="M92 405 C68 385 55 360 52 330" />
+      <ellipse class="scroll-hoja" data-start=".3" cx="228" cy="110" rx="10" ry="22" />
+      <ellipse class="scroll-hoja" data-start=".65" cx="55" cy="325" rx="10" ry="23" />
+    </svg>
+  </div>
+
   <div class="regalos-contenido">
+
     <div class="regalos-icono">♡</div>
-    <div class="regalos-numero">06</div>
     <div class="regalos-etiqueta">UN DETALLE PARA NOSOTROS</div>
     <h2 class="regalos-titulo">Regalos</h2>
-    <div class="regalos-linea"></div>
-    <div class="regalos-texto"><em>Tu presencia es el regalo más especial.</em><br>Si deseas tener un detalle adicional, te compartimos estas opciones con mucho cariño.</div>
-    <div class="bancos-preview">
-      <button class="banco-preview" type="button" data-banco="pichincha" aria-label="Ver datos de Banco Pichincha">
-        <span class="banco-icono" aria-hidden="true">♧</span>
-        <span class="banco-preview-info"><span class="banco-preview-nombre">Banco Pichincha</span><span class="banco-preview-titular">González Almeida Carolina Pricila</span></span>
-        <span class="banco-preview-flecha" aria-hidden="true">›</span>
-      </button>
-      <button class="banco-preview" type="button" data-banco="guayaquil" aria-label="Ver datos de Banco Guayaquil">
-        <span class="banco-icono" aria-hidden="true">♧</span>
-        <span class="banco-preview-info"><span class="banco-preview-nombre">Banco Guayaquil</span><span class="banco-preview-titular">Mendoza Pérez Darling Alexander</span></span>
-        <span class="banco-preview-flecha" aria-hidden="true">›</span>
-      </button>
+
+    <div class="regalos-texto">
+      Si deseas regalarnos algo más que tu hermosa presencia,
+      hemos preparado estas opciones para ti.
     </div>
-    <div class="regalo-nota-bloque"><p class="regalo-nota-pregunta">¿Deseas dejarnos una nota sobre tu regalo?</p>
-      <button class="regalo-nota-boton" id="abrirNotaRegalo" type="button">DEJAR UNA NOTA &nbsp; ›</button>
+
+    <div class="regalos-linea"></div>
+
+    <div class="bancos-preview">
+
+      <div class="banco-preview">
+        <div class="banco-icono">◇</div>
+        <div class="banco-preview-nombre">Banco Pichincha</div>
+        <div class="banco-preview-titular">Carolina Pricila González Almeida</div>
+      </div>
+
+      <div class="banco-preview">
+        <div class="banco-icono">◇</div>
+        <div class="banco-preview-nombre">Banco Guayaquil</div>
+        <div class="banco-preview-titular">Darling Alexander Mendoza Pérez</div>
+      </div>
+
+    </div>
+
+    <button class="regalos-boton" id="abrirBancos" type="button">
+      VER DATOS PARA TRANSFERENCIA
+    </button>
+
+    <div class="regalo-nota-bloque">
+      <p class="regalo-nota-pregunta">
+        ¿Deseas dejarnos una nota sobre tu regalo?
+      </p>
+
+      <button class="regalo-nota-boton" id="abrirNotaRegalo" type="button">
+        DEJAR UNA NOTA
+      </button>
+
       <div class="regalo-nota-estado" id="estadoNotaRegalo"></div>
     </div>
-    <div class="regalos-nota">GRACIAS POR ACOMPAÑARNOS EN ESTE NUEVO CAPÍTULO</div>
+
+    <div class="regalos-nota">
+      GRACIAS POR ACOMPAÑARNOS EN ESTE NUEVO CAPÍTULO
+    </div>
+
   </div>
+
 </section>
 
 
@@ -4362,11 +4192,11 @@ select {
       <div class="rsvp-invitado-label">INVITACIÓN PARA</div>
       <div class="rsvp-invitado" id="rsvpNombre"></div>
       <div class="rsvp-cupos" id="rsvpCupos"></div>
-      <div class="rsvp-ornamento" aria-hidden="true"><span></span>♡<span></span></div><div class="rsvp-pregunta">¿Nos acompañarás?</div>
+      <div class="rsvp-pregunta">¿Nos acompañarás?</div>
 
       <div class="rsvp-opciones">
-        <button class="rsvp-opcion" id="rsvpSi" type="button"><span class="rsvp-boton-icono" aria-hidden="true">✓</span>SÍ, ASISTIRÉ</button>
-        <button class="rsvp-opcion" id="rsvpNo" type="button"><span class="rsvp-boton-icono" aria-hidden="true">×</span>NO PODRÉ ASISTIR</button>
+        <button class="rsvp-opcion" id="rsvpSi" type="button">SÍ, ASISTIRÉ</button>
+        <button class="rsvp-opcion" id="rsvpNo" type="button">NO PODRÉ ASISTIR</button>
       </div>
 
       <div class="rsvp-detalles" id="rsvpDetalles">
@@ -4406,7 +4236,7 @@ select {
       </button>
 
     </div>
-    <div class="rsvp-cierre" aria-hidden="true"><span class="rsvp-cierre-rama">❧</span><span>GRACIAS POR SER PARTE DE NUESTRA HISTORIA</span></div>
+
   </div>
 
 </section>
@@ -4516,15 +4346,47 @@ select {
 </div>
 
 
-<div class="modal-bancos" id="modalBancos" role="dialog" aria-modal="true" aria-labelledby="tituloModalBanco">
-  <div class="modal-caja atelier-modal-caja">
-    <button class="modal-cerrar" id="cerrarModalBancos" type="button" aria-label="Cerrar">×</button>
-    <div class="atelier-modal-eyebrow">UN DETALLE PARA NOSOTROS</div>
-    <h3 class="modal-titulo" id="tituloModalBanco">Datos para transferencia</h3>
-    <p class="modal-texto" id="modalBancoEstado" aria-live="polite">Consultando datos de la cuenta…</p>
-    <div id="datosBancarios"><div class="datos-bancos-grid" id="datosBancosGrid"></div></div>
+<div class="modal-bancos" id="modalBancos">
+
+  <div class="modal-caja">
+
+    <button class="modal-cerrar" id="cerrarModalBancos" type="button">×</button>
+
+    <h3 class="modal-titulo">Datos para transferencia</h3>
+
+    <div class="modal-texto">
+      Por seguridad, ingresa el código proporcionado
+      por los novios.
+    </div>
+
+    <div class="pin-contenedor" id="pinContenedor">
+
+      <input
+        type="password"
+        class="pin-input"
+        id="pinBancos"
+        inputmode="numeric"
+        maxlength="4"
+        autocomplete="off"
+        placeholder="••••"
+      >
+
+      <button class="pin-boton" id="verificarPin" type="button">
+        VER DATOS
+      </button>
+
+      <div class="pin-error" id="pinError"></div>
+
+    </div>
+
+    <div id="datosBancarios">
+      <div class="datos-bancos-grid" id="datosBancosGrid"></div>
+    </div>
+
   </div>
+
 </div>
+
 
 <script>
 
@@ -4532,36 +4394,19 @@ select {
    CONFIGURACIÓN
 ========================================================= */
 
-/* Invitaciones y RSVP conectados a Supabase. */
-const SUPABASE_URL = "https://vgoooyctkzvaeknrlzvu.supabase.co";
-const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_X8f3MFYjB1DFVKqo40xajA_6PA3AMFE";
-const EVENTO_SUPABASE = "caro_alex";
+const API_URL =
+"https://script.google.com/macros/s/AKfycbz_-f9kBoM8sUsXhQ9BqC4MuiWM3H8QtZrAIO6-Fgw-GZsttL3mVH4GUk5mT_3ZqgwxcA/exec";
 
-async function llamarSupabaseRPC(funcion, parametrosRPC) {
-  const respuesta = await fetch(
-    SUPABASE_URL + "/rest/v1/rpc/" + funcion,
-    {
-      method: "POST",
-      headers: {
-        "apikey": SUPABASE_PUBLISHABLE_KEY,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(parametrosRPC || {}),
-      cache: "no-store"
-    }
-  );
-
-  if (!respuesta.ok) {
-    let detalle = "";
-    try { detalle = await respuesta.text(); } catch (e) {}
-    throw new Error(
-      "Supabase " + respuesta.status +
-      (detalle ? ": " + detalle : "")
-    );
-  }
-
-  return await respuesta.json();
-}
+// MODO DE PRUEBA: invitado ficticio para trabajar el rediseño sin tocar la base real.
+const MODO_DEMO = true;
+const INVITADO_DEMO = {
+  ok: true,
+  invitado: "Francisco Jacho y esposa",
+  cupos: 2,
+  estado: "PENDIENTE",
+  asisten: "",
+  acompanantes: ""
+};
 
 const parametros =
 new URLSearchParams(window.location.search);
@@ -4618,7 +4463,9 @@ function obtenerCodigoInvitacion() {
   return "";
 }
 
-const codigo = obtenerCodigoInvitacion();
+const codigo = MODO_DEMO
+? "DEMO-CARO-ALEX"
+: obtenerCodigoInvitacion();
 
 // Si venimos del 404 interno, recuperamos la URL bonita.
 const rutaBonitaPendiente =
@@ -4755,11 +4602,11 @@ function abrirGoogleCalendar() {
     "Karla Ramírez Event Studio · La Solé, Av. Gral. Rumiñahui S/N, 171103 Quito";
 
   const descripcion =
-    "Acompáñanos a celebrar nuestra boda. Carolina & Alexander · 14 de noviembre de 2026 · Ceremonia 16:30.";
+    "Acompáñanos a celebrar nuestra boda. Carolina & Alexander · 14 de noviembre de 2026 · Ceremonia 11:00 a. m.";
 
   /*
     Ecuador UTC-5:
-    16:30 Ecuador = 21:30 UTC.
+    11:00 Ecuador = 16:00 UTC.
 
     Google Calendar exige inicio y fin para su
     enlace web. Se utiliza una duración técnica
@@ -4767,10 +4614,10 @@ function abrirGoogleCalendar() {
   */
 
   const inicio =
-    "20261114T213000Z";
+    "20261114T160000Z";
 
   const fin =
-    "20261114T223000Z";
+    "20261114T170000Z";
 
   const url =
     "https://calendar.google.com/calendar/render" +
@@ -4795,7 +4642,99 @@ function abrirGoogleCalendar() {
    JSONP
 ========================================================= */
 
-/* Consulta JSONP eliminada: no se utiliza Google Apps Script. */
+function consultaJSONP(
+  url,
+  callbackNombre,
+  timeoutMs
+) {
+
+  return new Promise(
+    function (resolve, reject) {
+
+      const script =
+      document.createElement("script");
+
+      let terminado = false;
+
+      const limpiar = function () {
+
+        if (script.parentNode) {
+          script.parentNode.removeChild(script);
+        }
+
+        try {
+          delete window[callbackNombre];
+        } catch (e) {
+          window[callbackNombre] = undefined;
+        }
+
+      };
+
+      const temporizador =
+      setTimeout(
+        function () {
+
+          if (terminado) {
+            return;
+          }
+
+          terminado = true;
+
+          limpiar();
+
+          reject(
+            new Error("Tiempo de espera agotado")
+          );
+
+        },
+        timeoutMs || 9000
+      );
+
+      window[callbackNombre] =
+      function (datos) {
+
+        if (terminado) {
+          return;
+        }
+
+        terminado = true;
+
+        clearTimeout(temporizador);
+
+        limpiar();
+
+        resolve(datos);
+
+      };
+
+      script.onerror =
+      function () {
+
+        if (terminado) {
+          return;
+        }
+
+        terminado = true;
+
+        clearTimeout(temporizador);
+
+        limpiar();
+
+        reject(
+          new Error("Error al cargar Apps Script")
+        );
+
+      };
+
+      script.src = url;
+      script.async = true;
+
+      document.body.appendChild(script);
+
+    }
+  );
+
+}
 
 
 /* =========================================================
@@ -4804,49 +4743,111 @@ function abrirGoogleCalendar() {
 
 async function cargarInvitado() {
 
+  if (MODO_DEMO) {
+    recibirInvitado({ ...INVITADO_DEMO });
+    return;
+  }
+
   if (!codigo) {
+
     mostrarError(
       "No encontramos un código de invitación en este enlace."
     );
+
     return;
   }
 
   try {
-    const filas = await llamarSupabaseRPC(
-      "obtener_invitado",
-      {
-        p_evento: EVENTO_SUPABASE,
-        p_codigo: codigo
-      }
+
+    const callback1 =
+    "bodaInvitado_" +
+    Date.now() +
+    "_" +
+    Math.floor(Math.random() * 100000);
+
+    const url1 =
+    API_URL +
+    "?accion=invitado" +
+    "&codigo=" +
+    encodeURIComponent(codigo) +
+    "&callback=" +
+    encodeURIComponent(callback1) +
+    "&t=" +
+    Date.now();
+
+    const datos1 =
+    await consultaJSONP(
+      url1,
+      callback1,
+      8000
     );
 
-    const invitado =
-      Array.isArray(filas) && filas.length
-      ? filas[0]
-      : null;
+    if (datos1 && datos1.ok) {
 
-    if (!invitado) {
-      mostrarError();
+      recibirInvitado(datos1);
+
       return;
     }
 
-    recibirInvitado({
-      ok: true,
-      codigo: invitado.codigo,
-      invitado: invitado.nombre,
-      cupos: invitado.cupos,
-      estado: invitado.estado || "",
-      asisten: Number(invitado.asisten) || 0,
-      acompanantes: invitado.acompanantes || "",
-      notaRegalo: invitado.nota || ""
-    });
+  } catch (error) {
+
+    console.log(
+      "Intento 1 falló:",
+      error
+    );
+
+  }
+
+  try {
+
+    const callback2 =
+    "bodaInvitadoFallback_" +
+    Date.now() +
+    "_" +
+    Math.floor(Math.random() * 100000);
+
+    const url2 =
+    API_URL +
+    "?codigo=" +
+    encodeURIComponent(codigo) +
+    "&callback=" +
+    encodeURIComponent(callback2) +
+    "&t=" +
+    Date.now();
+
+    const datos2 =
+    await consultaJSONP(
+      url2,
+      callback2,
+      8000
+    );
+
+    if (datos2 && datos2.ok) {
+
+      recibirInvitado(datos2);
+
+      return;
+    }
+
+    mostrarError(
+      datos2 && datos2.mensaje
+      ? datos2.mensaje
+      : "Invitación no encontrada."
+    );
 
   } catch (error) {
-    console.error("Error cargando invitado desde Supabase:", error);
+
+    console.log(
+      "Intento 2 falló:",
+      error
+    );
+
     mostrarError(
       "No pudimos cargar tu invitación. Intenta recargar la página."
     );
+
   }
+
 }
 
 
@@ -5434,14 +5435,17 @@ rsvpConfirmar.addEventListener(
 async function guardarRSVP() {
 
   if (!respuestaRSVP) {
+
     rsvpMensaje.textContent =
     "Selecciona una respuesta.";
+
     return;
   }
 
   let acompanantes = [];
 
   if (respuestaRSVP === "SI") {
+
     const campos =
     document.querySelectorAll(
       ".acompanante-campo"
@@ -5449,76 +5453,94 @@ async function guardarRSVP() {
 
     let incompleto = false;
 
-    campos.forEach(function (campo) {
-      const nombre = campo.value.trim();
-      if (!nombre) {
-        incompleto = true;
-      } else {
-        acompanantes.push(nombre);
-      }
-    });
+    campos.forEach(
+      function (campo) {
 
-    if (incompleto) {
-      rsvpMensaje.textContent =
-      "Escribe el nombre completo de cada acompañante.";
-      return;
-    }
-  }
+        const nombre =
+        campo.value.trim();
 
-  rsvpConfirmar.disabled = true;
-  rsvpMensaje.textContent =
-  "Guardando tu respuesta...";
+        if (!nombre) {
 
-  const estado =
-    respuestaRSVP === "SI"
-    ? "CONFIRMADO"
-    : "NO ASISTE";
+          incompleto = true;
 
-  const asisten =
-    respuestaRSVP === "SI"
-    ? cantidadAsistentes
-    : 0;
+        } else {
 
-  const nombresAcompanantes =
-    respuestaRSVP === "SI"
-    ? acompanantes.join(", ")
-    : "";
+          acompanantes.push(nombre);
 
-  try {
-    const guardado = await llamarSupabaseRPC(
-      "responder_invitacion",
-      {
-        p_evento: EVENTO_SUPABASE,
-        p_codigo: codigo,
-        p_estado: estado,
-        p_asisten: asisten,
-        p_acompanantes: nombresAcompanantes || null,
-        p_nota: invitadoActual && invitadoActual.notaRegalo
-          ? invitadoActual.notaRegalo
-          : null
+        }
+
       }
     );
 
-    if (guardado !== true) {
-      rsvpConfirmar.disabled = false;
+    if (incompleto) {
+
       rsvpMensaje.textContent =
-      "No pudimos guardar tu respuesta.";
+      "Escribe el nombre completo de cada acompañante.";
+
       return;
     }
 
-    recibirConfirmacion({
-      ok: true,
-      estado: estado,
-      asisten: asisten,
-      acompanantes: nombresAcompanantes
-    });
+  }
+
+  if (MODO_DEMO) {
+    invitadoActual.estado = respuestaRSVP === "SI" ? "CONFIRMADO" : "NO ASISTE";
+    invitadoActual.asisten = respuestaRSVP === "SI" ? cantidadAsistentes : 0;
+    invitadoActual.acompanantes = acompanantes.join("|");
+    mostrarRespuestaGuardada(true);
+    return;
+  }
+
+  rsvpConfirmar.disabled = true;
+
+  rsvpMensaje.textContent =
+  "Guardando tu respuesta...";
+
+  const callback =
+  "bodaRSVP_" +
+  Date.now();
+
+  const url =
+  API_URL +
+  "?accion=confirmar" +
+  "&codigo=" +
+  encodeURIComponent(codigo) +
+  "&respuesta=" +
+  encodeURIComponent(respuestaRSVP) +
+  "&asisten=" +
+  encodeURIComponent(
+    respuestaRSVP === "SI"
+    ? cantidadAsistentes
+    : 0
+  ) +
+  "&acompanantes=" +
+  encodeURIComponent(
+    acompanantes.join("|")
+  ) +
+  "&callback=" +
+  callback +
+  "&t=" +
+  Date.now();
+
+  try {
+
+    const datos =
+    await consultaJSONP(
+      url,
+      callback,
+      10000
+    );
+
+    recibirConfirmacion(datos);
 
   } catch (error) {
-    console.error("Error guardando RSVP en Supabase:", error);
+
     rsvpConfirmar.disabled = false;
+
     rsvpMensaje.textContent =
     "No pudimos guardar tu respuesta. Intenta nuevamente.";
+
   }
+
 }
 
 function recibirConfirmacion(datos) {
@@ -5763,38 +5785,57 @@ notaRegaloTexto.addEventListener(
 
 async function guardarNotaRegalo() {
 
-  const nota = notaRegaloTexto.value.trim();
+  const nota =
+  notaRegaloTexto.value.trim();
 
   if (!nota) {
+
     notaRegaloMensaje.textContent =
     "Escribe unas palabras antes de enviar.";
+
     notaRegaloTexto.focus();
     return;
   }
 
   botonEnviarNotaRegalo.disabled = true;
+
   notaRegaloMensaje.textContent =
   "Guardando tu nota...";
 
+  const callback =
+  "bodaNota_" +
+  Date.now();
+
+  const url =
+  API_URL +
+  "?accion=nota_regalo" +
+  "&codigo=" +
+  encodeURIComponent(codigo) +
+  "&nota=" +
+  encodeURIComponent(nota) +
+  "&callback=" +
+  callback +
+  "&t=" +
+  Date.now();
+
   try {
-    const guardado = await llamarSupabaseRPC(
-      "guardar_nota_regalo",
-      {
-        p_evento: EVENTO_SUPABASE,
-        p_codigo: codigo,
-        p_nota: nota
-      }
+
+    const datos =
+    await consultaJSONP(
+      url,
+      callback,
+      10000
     );
 
-    if (guardado !== true) {
+    if (!datos || !datos.ok) {
+
       notaRegaloMensaje.textContent =
-      "No pudimos guardar tu nota. Inténtalo nuevamente.";
+      datos && datos.mensaje
+      ? datos.mensaje
+      : "No pudimos guardar tu nota. Inténtalo nuevamente.";
+
       botonEnviarNotaRegalo.disabled = false;
       return;
-    }
-
-    if (invitadoActual) {
-      invitadoActual.notaRegalo = nota;
     }
 
     notaRegaloMensaje.textContent =
@@ -5811,12 +5852,16 @@ async function guardarNotaRegalo() {
     }, 1600);
 
   } catch (error) {
-    console.error("Error guardando nota en Supabase:", error);
+
     notaRegaloMensaje.textContent =
     "No pudimos guardar tu nota. Revisa tu conexión e inténtalo nuevamente.";
+
   } finally {
+
     botonEnviarNotaRegalo.disabled = false;
+
   }
+
 }
 
 botonEnviarNotaRegalo.addEventListener(
@@ -5826,58 +5871,220 @@ botonEnviarNotaRegalo.addEventListener(
 
 
 /* =========================================================
-   BANCOS · Datos estáticos proporcionados por los novios.
-   Sin PIN, Apps Script ni solicitudes externas.
+   BANCOS
 ========================================================= */
-const modalBancos = document.getElementById("modalBancos");
-const modalBancoEstado = document.getElementById("modalBancoEstado");
-const datosBancosGrid = document.getElementById("datosBancosGrid");
-const CUENTAS_BODA = {
-  pichincha: {
-    banco: "Banco Pichincha",
-    titular: "González Almeida Carolina Pricila",
-    tipoCuenta: "Cuenta de ahorros",
-    cuenta: "7702688193",
-    cedula: "1726921131"
-  },
-  guayaquil: {
-    banco: "Banco Guayaquil",
-    titular: "Mendoza Pérez Darling Alexander",
-    tipoCuenta: "Cuenta de ahorros",
-    cuenta: "0044038638",
-    cedula: "1753215993"
+
+const modalBancos =
+document.getElementById("modalBancos");
+
+const pinInput =
+document.getElementById("pinBancos");
+
+const pinError =
+document.getElementById("pinError");
+
+document
+.getElementById("abrirBancos")
+.addEventListener(
+  "click",
+  function () {
+
+    modalBancos.classList.add("activo");
+
+    pinInput.value = "";
+    pinError.textContent = "";
+
+    document
+    .getElementById("datosBancarios")
+    .style.display =
+    "none";
+
+    document
+    .getElementById("pinContenedor")
+    .style.display =
+    "block";
+
   }
-};
-function crearDato(etiqueta, valor, copiar) {
-  const bloque = document.createElement("div"); bloque.className = "atelier-modal-dato";
-  const label = document.createElement("div"); label.className = "dato-label"; label.textContent = etiqueta;
-  const texto = document.createElement("div"); texto.className = "dato-valor"; texto.textContent = valor;
-  bloque.append(label, texto);
-  if (copiar) {
-    const boton = document.createElement("button"); boton.type = "button";
-    boton.className = "copiar-boton"; boton.textContent = "COPIAR " + etiqueta;
-    boton.addEventListener("click", () => copiarTexto(valor, boton));
-    bloque.appendChild(boton);
+);
+
+document
+.getElementById("cerrarModalBancos")
+.addEventListener(
+  "click",
+  function () {
+
+    modalBancos.classList.remove("activo");
+
   }
-  return bloque;
+);
+
+async function verificarPinBancos() {
+
+  const pin =
+  pinInput.value.trim();
+
+  if (pin.length !== 4) {
+
+    pinError.textContent =
+    "Ingresa el código de 4 dígitos.";
+
+    return;
+  }
+
+  pinError.textContent =
+  "Verificando...";
+
+  const callback =
+  "bodaBanco_" +
+  Date.now();
+
+  const url =
+  API_URL +
+  "?accion=bancos" +
+  "&codigo=" +
+  encodeURIComponent(codigo) +
+  "&pin=" +
+  encodeURIComponent(pin) +
+  "&callback=" +
+  callback +
+  "&t=" +
+  Date.now();
+
+  try {
+
+    const datos =
+    await consultaJSONP(
+      url,
+      callback,
+      10000
+    );
+
+    if (!datos || !datos.ok) {
+
+      pinError.textContent =
+      "Código incorrecto.";
+
+      return;
+    }
+
+    pinError.textContent = "";
+
+    mostrarDatosBancarios(
+      datos.bancos
+    );
+
+  } catch (error) {
+
+    pinError.textContent =
+    "No pudimos consultar los datos.";
+
+  }
+
 }
-function abrirBanco(clave) {
-  const banco = CUENTAS_BODA[clave];
-  if (!banco) return;
-  document.getElementById("tituloModalBanco").textContent = banco.banco;
-  modalBancos.classList.add("activo");
-  modalBancoEstado.textContent = "";
-  datosBancosGrid.replaceChildren();
-  datosBancosGrid.append(
-    crearDato("TITULAR", banco.titular, false),
-    crearDato("TIPO DE CUENTA", banco.tipoCuenta, false),
-    crearDato("NÚMERO DE CUENTA", banco.cuenta, true),
-    crearDato("NÚMERO DE CÉDULA", banco.cedula, true));
+
+document
+.getElementById("verificarPin")
+.addEventListener(
+  "click",
+  verificarPinBancos
+);
+
+pinInput.addEventListener(
+  "keydown",
+  function (event) {
+
+    if (event.key === "Enter") {
+      verificarPinBancos();
+    }
+
+  }
+);
+
+function mostrarDatosBancarios(bancos) {
+
+  const grid =
+  document.getElementById("datosBancosGrid");
+
+  grid.innerHTML = "";
+
+  bancos.forEach(
+    function (banco) {
+
+      const tarjeta =
+      document.createElement("div");
+
+      tarjeta.className =
+      "banco-datos";
+
+      tarjeta.innerHTML =
+      `
+        <div class="banco-datos-titulo">
+          ${banco.banco}
+        </div>
+
+        <div class="dato-label">
+          TITULAR
+        </div>
+
+        <div class="dato-valor">
+          ${banco.titular}
+        </div>
+
+        <div class="dato-label">
+          TIPO DE CUENTA
+        </div>
+
+        <div class="dato-valor">
+          ${banco.tipoCuenta}
+        </div>
+
+        <div class="dato-label">
+          NÚMERO DE CUENTA
+        </div>
+
+        <div class="dato-valor dato-numero">
+          ${banco.cuenta}
+        </div>
+
+        <button
+          class="copiar-boton"
+          onclick="copiarTexto('${banco.cuenta}',this)"
+        >
+          COPIAR CUENTA
+        </button>
+
+        <div class="dato-label">
+          NÚMERO DE CÉDULA
+        </div>
+
+        <div class="dato-valor dato-numero">
+          ${banco.cedula}
+        </div>
+
+        <button
+          class="copiar-boton"
+          onclick="copiarTexto('${banco.cedula}',this)"
+        >
+          COPIAR CÉDULA
+        </button>
+      `;
+
+      grid.appendChild(tarjeta);
+
+    }
+  );
+
+  document
+  .getElementById("pinContenedor")
+  .style.display =
+  "none";
+
+  document
+  .getElementById("datosBancarios")
+  .style.display =
+  "block";
+
 }
-document.querySelectorAll(".banco-preview[data-banco]").forEach(boton => boton.addEventListener("click", () => abrirBanco(boton.dataset.banco)));
-document.getElementById("cerrarModalBancos").addEventListener("click", () => modalBancos.classList.remove("activo"));
-modalBancos.addEventListener("click", e => { if (e.target === modalBancos) modalBancos.classList.remove("activo"); });
-document.addEventListener("keydown", e => { if (e.key === "Escape") modalBancos.classList.remove("activo"); });
 
 function copiarTexto(texto, boton) {
 
@@ -5914,7 +6121,7 @@ function copiarTexto(texto, boton) {
 
 const fechaBoda =
 new Date(
-  "2026-11-14T16:30:00-05:00"
+  "2026-11-14T11:00:00-05:00"
 );
 
 function actualizarContador() {
